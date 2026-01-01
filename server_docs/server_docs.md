@@ -48,7 +48,7 @@ Port 5002
 - Model: **base** (optionally `small` for higher accuracy)
 - Input: **16 kHz mono WAV**
 - Output: **Transcribed text**
-- Max latency: **~500 ms**
+- Max latency: **200-300 ms**
 
 ### STT Flow
 1. Audio is received as a file
