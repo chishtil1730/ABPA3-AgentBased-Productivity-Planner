@@ -19,16 +19,26 @@ Both functions are accessed via HTTP and are **never called simultaneously**.
 - No load balancer is used, as requests are serialized by design
 
 ##Architecture
--Local HTTP Request
--|
--v
--+--------------------+
--| Python Server |
--| |
--| /stt /tts |
--+--------------------+
--|
--Port 5002
+Local HTTP Request
+
+|
+
+v
+
++--------------------+
+
+| Python Server |
+
+| |
+
+| /stt /tts |
+
++--------------------+
+
+|
+
+Port 5002
+
 
 
 ---
