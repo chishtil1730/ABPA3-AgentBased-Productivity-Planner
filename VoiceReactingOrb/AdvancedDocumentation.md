@@ -7,7 +7,7 @@
 
 ## 1. Problem Statement
 
-Microphone input is **never silent**.
+Microphone input is **never silent.**
 
 Even when the user is not speaking, the raw signal contains:
 
@@ -16,6 +16,7 @@ Even when the user is not speaking, the raw signal contains:
 * Room tone
 * Environmental hum
 
+**This is basically us wasting computation on something unnecessary**
 If raw audio is mapped directly to visuals, the orb:
 
 * Never stops moving
