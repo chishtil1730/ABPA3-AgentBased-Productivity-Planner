@@ -84,7 +84,7 @@ Port 5002
 
 | Function | Max Latency |
 |--------|-------------|
-| STT    | ~500 ms     |
+| STT    | 200-300 ms  |
 | TTS    | 150–200 ms  |
 
 ---
