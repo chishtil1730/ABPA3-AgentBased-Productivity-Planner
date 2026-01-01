@@ -18,16 +18,17 @@ Both functions are accessed via HTTP and are **never called simultaneously**.
 - Runs on a **single port: `5002`**
 - No load balancer is used, as requests are serialized by design
 
-Local HTTP Request
-|
-v
-+--------------------+
-| Python Server |
-| |
-| /stt /tts |
-+--------------------+
-|
-Port 5002
+##Architecture
+-Local HTTP Request
+-|
+-v
+-+--------------------+
+-| Python Server |
+-| |
+-| /stt /tts |
+-+--------------------+
+-|
+-Port 5002
 
 
 ---
