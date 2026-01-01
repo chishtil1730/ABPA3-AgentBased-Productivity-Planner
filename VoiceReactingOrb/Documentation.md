@@ -8,7 +8,7 @@
 
 ### 1️⃣ Raw Audio (What the mic gives us)
 
-![Raw waveform](VoiceReactiongOrb/RawWaveform.png)
+![Raw waveform](./RawWaveform.png)
 
 * Continuous waveform
 * Always noisy
@@ -18,7 +18,7 @@
 
 ### 2️⃣ Absolute / Magnitude View (Still not usable)
 
-![Absolute signal](VoiceReactiongOrb/absolute_sin_function.png)
+![Absolute signal](./absolute_sin_function.png)
 
 * Magnitude only
 * Noise still present
@@ -28,7 +28,7 @@
 
 ### 3️⃣ RMS + Smoothing (This is the control signal)
 
-![Smoothed RMS](VoiceReactiongOrb/smoothened_rms.png)
+![Smoothed RMS](./smoothened_rms.png)
 
 * One value per time window
 * Noise collapses near zero
@@ -88,4 +88,4 @@ It removes noise **from the animation behavior**, not from the sound itself.
 
 ---
 
-> *Honestly, seeing chaotic audio turn into a clean, live control signal is still kind of mind-boggling.*
+> *Honestly, seeing chaotic audio turn into a clean, live control signal is still kind of mind‑boggling.*
