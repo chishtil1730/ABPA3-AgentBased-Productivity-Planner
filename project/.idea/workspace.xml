@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c0159f29-9bcf-4b45-87f1-b60817a5e108" name="Changes" comment="pushed current files">
+      <change afterPath="$PROJECT_DIR$/../flowchart/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/Dock.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/Dock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/components/BoardHeader.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/components/CanvasManager.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/components/FlowCanvas.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/components/NodeCustom.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/components/NodeGroup.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/components/NodeLabel.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/fonts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/layouts/DashboardLayout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/main.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/pages/Dashboard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/src/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../flowchart/vite.config.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Altone Trial-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BaconSans.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Coolvetica Rg.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Epilogue-Regular.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unbounded-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pixel.TTF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Altone Trial-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Coolvetica Rg.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Altone.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GasoekOne-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TripleDotDigital7-dojZ.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/4k_landscape_dots.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/GradientBlinds.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/GradientBlinds.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/LayoutBackground.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/Silk.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/bg2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/bg3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/bg4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/bg5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/bg6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/bg_silk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/dark_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/gradientbg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/light_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/max-logo-tr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/minar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/silk2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/silk3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/backgrounds/silk4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/cursors/custom-cursor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/cursors/custom-cursor2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/cursors/hand-cursor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/cursors/typing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/cursors/white-typing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/Altone Trial-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/BaconSans.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/Coolvetica Rg.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/Epilogue-Regular.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/GasoekOne-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/Unbounded-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/fonts/pixel.TTF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/sounds/MicOfd.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/sounds/MicOn.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/ui/RollingDigit.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/AltWidget.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/AltWidget.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/Calendar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/CalendarContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/CircularGallery.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/CircularGallery.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/DatePanel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/DatePanel.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/SignInButton.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/SwipeWidgetShell.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/SwipeWidgetShell.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/SwipeableContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/TaskTracker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/TaskTracker.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/TaskTrackerContainer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/TaskTrackerContianer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/TimeWidget.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/TimeWidget.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/TimeWidgetContainer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/TimeWidgetContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/UpcomingPanel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/UpcomingPanel.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/UpcomingPanelContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/UpcomingSlot.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calender-components/useGoogleCalendar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/extensions/speakDailySummary.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/flowchart_components/Dock.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/flowchart_components/Dock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/flowchart_components/FlowCanvas.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/flowchart_components/FlowCanvasContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/flowchart_components/NodeCustom.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/flowchart_components/NodeGroup.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/flowchart_components/NodeLabel.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kanban_components/CustomKanban.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kanban_components/CustomKanban.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kanban_components/GooeyNav.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kanban_components/GooeyNav.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kanban_components/KanbanWidget.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kanban_components/KanbanWidget.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kanban_components/kanbanProgress.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/kanban_components/kanbanStore.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/layouts/Layout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/layouts/Layout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing-stuff/CustomCursor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing-stuff/CustomCursor.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing-stuff/KanbanReveal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing-stuff/KanbanReveal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing-stuff/PreLoader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing-stuff/PreLoader.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/ChatUI.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/IntegratedApp.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/IntegratedContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/Prism.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/Prism.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/Stack.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/Stack.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/VoiceNotes.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/VoiceNotes.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/VoiceOrb.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/micStateUtils.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/piperTTS.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/useAudioLevel.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/voiceState.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/voice-assistant/whisperSTT.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flowchart/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../flowchart/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flowchart/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../flowchart/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flowchart/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../flowchart/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flowchart/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../flowchart/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flowchart/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../flowchart/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kanban.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kanban.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
+        <option value="JSX File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/public/index.html" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/App.jsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/calender-components/DatePanel.css" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/calender-components/TaskTracker.css" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/calender-components/TaskTracker.jsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/flowchart_components/FlowCanvas.jsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/kanban_components/CustomKanban.jsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/kanban_components/GooeyNav.css" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/layouts/Layout.jsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main.jsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/testing-stuff/KanbanReveal.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/voice-assistant/Prism.jsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/voice-assistant/VoiceNotes.jsx" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/voice-assistant/VoiceOrb.jsx" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="36SqwZ8rlK8S33k1Z8Zw9oB7Ro9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/WebstormProjects/kanban/src&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;C:/Users/LENOVO/AppData/Roaming/JetBrains/WebStorm2025.2/node/versions/20.15.0/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.npm start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\WebStorm 2025.2.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\WebstormProjects\kanban\src" />
+      <recent name="C:\Users\LENOVO\WebstormProjects\kanban\src\calender-components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\WebstormProjects\kanban\src\voice-assistant" />
+      <recent name="C:\Users\LENOVO\WebstormProjects\kanban\src" />
+      <recent name="C:\Users\LENOVO\WebstormProjects\kanban\public" />
+      <recent name="C:\Users\LENOVO\WebstormProjects\kanban\src\kanban_components" />
+      <recent name="C:\Users\LENOVO\WebstormProjects\kanban\src\flowchart_components" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-WS-252.28238.10" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c0159f29-9bcf-4b45-87f1-b60817a5e108" name="Changes" comment="" />
+      <created>1765010559496</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1765010559496</updated>
+      <workItem from="1765010560505" duration="11110000" />
+      <workItem from="1765027552780" duration="263000" />
+      <workItem from="1765041229453" duration="1374000" />
+      <workItem from="1765107425537" duration="1328000" />
+      <workItem from="1765126816465" duration="1316000" />
+      <workItem from="1765129318408" duration="523000" />
+      <workItem from="1765134134256" duration="1000" />
+      <workItem from="1765134821136" duration="866000" />
+      <workItem from="1765136135182" duration="247000" />
+      <workItem from="1765187241031" duration="4846000" />
+      <workItem from="1765622693154" duration="796000" />
+      <workItem from="1765623647354" duration="61000" />
+      <workItem from="1765632743371" duration="161000" />
+      <workItem from="1766045813146" duration="488000" />
+      <workItem from="1766049425939" duration="884000" />
+      <workItem from="1766133254848" duration="15000" />
+      <workItem from="1766478055420" duration="1508000" />
+      <workItem from="1766479621131" duration="4000" />
+      <workItem from="1766479704121" duration="52000" />
+      <workItem from="1766479766141" duration="9981000" />
+      <workItem from="1766490139100" duration="512000" />
+      <workItem from="1766494477368" duration="20000" />
+      <workItem from="1766494720641" duration="12283000" />
+      <workItem from="1766552964834" duration="1076000" />
+      <workItem from="1766554605084" duration="19855000" />
+      <workItem from="1766576365809" duration="906000" />
+      <workItem from="1766586332356" duration="1344000" />
+      <workItem from="1766587699507" duration="19000" />
+      <workItem from="1766587780292" duration="124000" />
+      <workItem from="1766589501890" duration="10431000" />
+      <workItem from="1766600173374" duration="254000" />
+      <workItem from="1766600587454" duration="2678000" />
+      <workItem from="1766603466276" duration="3019000" />
+      <workItem from="1766639908085" duration="9168000" />
+      <workItem from="1766651269502" duration="2808000" />
+      <workItem from="1766654120097" duration="18952000" />
+      <workItem from="1766684803298" duration="5967000" />
+      <workItem from="1766730848157" duration="404000" />
+      <workItem from="1766742050015" duration="5611000" />
+      <workItem from="1766748534798" duration="7398000" />
+      <workItem from="1766757480717" duration="431000" />
+      <workItem from="1766758852844" duration="833000" />
+      <workItem from="1766778615709" duration="681000" />
+      <workItem from="1766780498693" duration="2146000" />
+      <workItem from="1766816562838" duration="9891000" />
+      <workItem from="1766830691862" duration="1712000" />
+      <workItem from="1766833178904" duration="213000" />
+      <workItem from="1766849350223" duration="16608000" />
+      <workItem from="1766902771075" duration="31881000" />
+      <workItem from="1766938858719" duration="6100000" />
+      <workItem from="1766952319832" duration="1526000" />
+      <workItem from="1767021190801" duration="1152000" />
+      <workItem from="1767029210666" duration="3835000" />
+      <workItem from="1767039427140" duration="429000" />
+      <workItem from="1767084327576" duration="5860000" />
+      <workItem from="1767090576645" duration="20822000" />
+      <workItem from="1767121120780" duration="1954000" />
+      <workItem from="1767172701896" duration="1390000" />
+      <workItem from="1767174330074" duration="2010000" />
+      <workItem from="1767178863294" duration="483000" />
+      <workItem from="1767181168237" duration="1021000" />
+      <workItem from="1767182617546" duration="934000" />
+      <workItem from="1767194962471" duration="547000" />
+      <workItem from="1767210409954" duration="308000" />
+      <workItem from="1767275056449" duration="602000" />
+      <workItem from="1767292518827" duration="4837000" />
+      <workItem from="1767299994354" duration="1714000" />
+      <workItem from="1767344465334" duration="763000" />
+      <workItem from="1767346910029" duration="2458000" />
+      <workItem from="1767375758497" duration="1496000" />
+      <workItem from="1767431153179" duration="371000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="pushed current files" />
+    <option name="LAST_COMMIT_MESSAGE" value="pushed current files" />
+  </component>
+</project>
