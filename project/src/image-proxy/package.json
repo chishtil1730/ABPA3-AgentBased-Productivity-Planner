@@ -1,0 +1,8 @@
+{
+  "name": "image-proxy",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
+  }
+}
