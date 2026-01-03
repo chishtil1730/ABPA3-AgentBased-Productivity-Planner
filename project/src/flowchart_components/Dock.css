@@ -1,0 +1,140 @@
+.dock-outer {
+    margin: 0 0.5rem;
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+}
+
+/* =========================
+   GLASS DOCK PANEL
+========================= */
+.dock-panel {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    width: fit-content;
+
+    font-family: Epilogue, serif;
+
+    padding: 0.4rem 0.6rem 0.6rem;
+    border-radius: 1rem;
+
+    /* Glass look */
+    background: linear-gradient(
+            180deg,
+            rgba(30, 30, 35, 0.35),
+            rgba(15, 15, 18, 0.15)
+    );
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.55),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* =========================
+   GLASS DOCK ITEM
+========================= */
+.dock-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Epilogue, serif;
+    cursor: pointer;
+    outline: none;
+
+    border-radius: 0.6rem;
+
+    /* Frosted glass tile */
+    background: linear-gradient(
+            160deg,
+            rgba(156, 152, 152, 0.34),
+            rgba(0, 0, 0, 0.47)
+    );
+    backdrop-filter: blur(10px) saturate(160%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+            0 6px 16px rgba(0, 0, 0, 0.45),
+            inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    transition:
+            background 0.25s ease,
+            border-color 0.25s ease,
+            box-shadow 0.25s ease;
+}
+
+/* Hover glow */
+.dock-item:hover {
+    background: linear-gradient(
+            160deg,
+            rgba(255, 255, 255, 0.14),
+            rgba(255, 255, 255, 0.05)
+    );
+
+    border-color: rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+            0 10px 26px rgba(0, 0, 0, 0.6),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* =========================
+   ICON
+========================= */
+.dock-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(255, 255, 255, 0.92);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+}
+
+/* =========================
+   LABEL (GLASS TOOLTIP)
+========================= */
+.dock-label {
+    position: absolute;
+    top: -1.8rem;
+    left: 50%;
+
+    width: fit-content;
+    white-space: pre;
+
+    font-family: Epilogue, serif;
+    font-size: 0.75rem;
+
+    padding: 0.2rem 0.55rem;
+    border-radius: 0.45rem;
+
+    transform: translateX(-50%);
+
+    /* Tooltip glass */
+    background: linear-gradient(
+            80deg,
+            rgba(14, 14, 18, 0.75),
+            rgba(39, 39, 44, 0.85)
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+            0 6px 18px rgba(0, 0, 0, 0.6),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}

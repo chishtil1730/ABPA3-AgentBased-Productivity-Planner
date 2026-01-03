@@ -1,0 +1,101 @@
+/* ===============================
+   DARK GLASS BASE
+================================ */
+
+.kanban-bg {
+    position: relative;
+
+    background:
+            radial-gradient(
+                    900px 500px at 80% -20%,
+                    rgba(255, 255, 255, 0.06),
+                    transparent 60%
+            ),
+            radial-gradient(
+                    600px 400px at 10% 120%,
+                    rgba(255, 255, 255, 0.04),
+                    transparent 55%
+            ),
+            linear-gradient(
+                    180deg,
+                    rgba(18, 18, 20, 0.55),
+                    rgba(12, 12, 14, 0.45)
+            );
+
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+
+    border-radius: 24px;
+
+    box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.45),
+            0 40px 90px rgba(0, 0, 0, 0.45);
+
+    overflow: hidden;
+}
+
+/* Subtle glass noise */
+.kanban-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+/* ===============================
+   COLUMNS (lighter glass)
+================================ */
+
+.kanban-column {
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.07),
+                    rgba(255, 255, 255, 0.025)
+            );
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-radius: 22px;
+
+    box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ===============================
+   WIDGET SHELL (outer glass)
+================================ */
+
+.kanban-widget-shell {
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.05),
+                    rgba(255, 255, 255, 0.015)
+            );
+
+    backdrop-filter: blur(26px) saturate(150%);
+    -webkit-backdrop-filter: blur(26px) saturate(150%);
+
+    box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+
+/* ===============================
+   CARD HOVER GLOW (GLASS POLISH)
+================================ */
+
+[data-card]:hover {
+    box-shadow:
+            0 0 0 1px rgba(255, 255, 255, 0.06),
+            0 20px 40px rgba(0, 0, 0, 0.35);
+}

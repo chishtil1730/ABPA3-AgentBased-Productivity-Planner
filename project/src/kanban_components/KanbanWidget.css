@@ -1,0 +1,180 @@
+/* ===============================
+   KANBAN SHELL (UNCHANGED)
+================================ */
+
+.kanban-widget-shell {
+    background: transparent;
+    backdrop-filter: none;
+}
+
+/* ===============================
+   GLASS SUMMARIZE BUTTON
+================================ */
+
+.summarize-btn {
+    overflow: hidden;
+    /* REQUIRED for ::before */
+    position: absolute;
+    top: -1px;
+    right: -185px;
+
+    appearance: none;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    padding: 12px 18px;
+
+    font-family: Epilogue, system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    /* Transparent glass */
+    background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.12),
+            rgba(255, 255, 255, 0.03)
+    );
+
+    backdrop-filter: blur(14px) saturate(135%);
+    -webkit-backdrop-filter: blur(14px) saturate(135%);
+
+    box-shadow:
+            0 6px 18px rgba(0, 0, 0, 0.35),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+    cursor: pointer;
+    user-select: none;
+
+    /* REQUIRED for animations */
+    transform-origin: center;
+    will-change: transform, filter;
+
+    transition:
+            transform 0.14s ease,
+            box-shadow 0.14s ease,
+            background 0.14s ease,
+            border-color 0.14s ease;
+}
+
+/* ===============================
+   BASE SHIMMER LAYER (REQUIRED)
+================================ */
+
+.summarize-btn::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+
+    background: linear-gradient(
+            120deg,
+            transparent 30%,
+            rgb(255, 255, 255),
+            transparent 70%
+    );
+
+    opacity: 0;
+    transform: translateX(-140%);
+    pointer-events: none;
+}
+
+/* ===============================
+   HOVER
+================================ */
+
+.summarize-btn:hover {
+    background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.18),
+            rgba(255, 255, 255, 0.06)
+    );
+
+    border-color: rgba(255, 255, 255, 0.22);
+
+    box-shadow:
+            0 10px 26px rgba(0, 0, 0, 0.45),
+            inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+    transform: translateY(-1px);
+}
+
+/* ===============================
+   ACTIVE (PRESS)
+================================ */
+
+.summarize-btn:active {
+    transform: translateY(1px) scale(0.97);
+
+    background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.87),
+            rgba(255, 255, 255, 0.02)
+    );
+
+    box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.4),
+            inset 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* ===============================
+   PROCESSING STATE (FIXED)
+================================ */
+
+.summarize-btn.processing {
+    cursor: wait;
+    pointer-events: none;
+
+    animation: liquidPulse 1.6s ease-in-out infinite;
+
+    box-shadow:
+            0 12px 38px rgba(0, 0, 0, 0.55),
+            inset 0 1px 0 rgb(255, 255, 255),
+            inset 0 -2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.summarize-btn.processing::before {
+    opacity: 0.45;
+    animation: liquidShimmer 1.2s linear infinite;
+}
+
+/* ===============================
+   DISABLED (SAFETY)
+================================ */
+
+.summarize-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* ===============================
+   KEYFRAMES
+================================ */
+
+@keyframes liquidPulse {
+    0% {
+        transform: scale(1);
+        filter: saturate(140%);
+    }
+    50% {
+        transform: scale(1.03);
+        filter: saturate(170%);
+    }
+    100% {
+        transform: scale(1);
+        filter: saturate(140%);
+    }
+}
+
+@keyframes liquidShimmer {
+    0% {
+        transform: translateX(-140%);
+    }
+    100% {
+        transform: translateX(140%);
+    }
+}
+
+
