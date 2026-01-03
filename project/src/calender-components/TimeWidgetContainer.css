@@ -1,0 +1,15 @@
+.time-widget-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    /* ==========================================
+       🔥 ISOLATION LAYER (VERY IMPORTANT)
+       Prevents shadows, masks, and filters from
+       being clipped or interfering with the page.
+       ========================================== */
+    isolation: isolate;
+
+    /* Allows future scale / hover / drag effects */
+    will-change: transform;
+}

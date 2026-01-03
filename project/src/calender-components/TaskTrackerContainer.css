@@ -1,0 +1,13 @@
+.TaskTrackerContainer {
+    position: absolute;
+    right: 80px;
+    bottom: 24px;
+    z-index: 40;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    pointer-events: auto;
+}
+

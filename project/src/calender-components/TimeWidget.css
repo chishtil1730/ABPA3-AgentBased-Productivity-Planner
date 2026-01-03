@@ -1,0 +1,172 @@
+.time-widget {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    /*top: 14.62rem;
+    right: 32.2rem;*/
+
+    border-radius: 28px;
+
+    /* =====================================================
+       🔥 GLASS BACKGROUND (LIGHT–DARK)
+       Lighter than black, slightly translucent
+       ===================================================== */
+    background: linear-gradient(
+            135deg,
+            rgba(40, 40, 40, 0.55),
+            rgba(18, 18, 18, 0.75)
+    );
+
+    /* =====================================================
+       🔥 GLASS DEPTH
+       Softer shadow + inner glow instead of heavy drop
+       ===================================================== */
+    box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.45),
+            inset 0 1px 0 rgba(255, 255, 255, 0.12),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+
+    display: flex;
+    overflow: hidden;
+    padding: 22px;
+
+    color: white;
+    font-family: Epilogue, system-ui, sans-serif;
+}
+
+/* ================= CONTENT ================= */
+
+.time-content {
+    z-index: 2;
+}
+
+/* ================= HEADER ================= */
+
+.time-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.country {
+    font-size: 18px;
+    opacity: 0.92;
+}
+
+/* =====================================================
+   🔥 GLASS PILL (lighter, softer, floating)
+   ===================================================== */
+.utc-pill {
+    background: linear-gradient(
+            180deg,
+            rgba(255, 180, 120, 0.95),
+            rgba(255, 150, 80, 0.95)
+    );
+    color: #1a1a1a;
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+
+    margin-left: 4px;
+
+    box-shadow:
+            0 6px 18px rgba(255, 160, 80, 0.35),
+            inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* ================= TIME ================= */
+
+.time-display {
+    margin-top: 0;
+    transform: translateY(-12px);
+
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -4px;
+
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+
+    /* =====================================================
+       🔥 SOFTER TEXT DEPTH (glass-safe)
+       ===================================================== */
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.28));
+}
+
+/* Each row of rolling digits */
+.time-row {
+    display: flex;
+    gap: 4px;
+}
+
+/* ================= MONUMENT ================= */
+
+.monument-wrapper {
+    position: absolute;
+    right: 5rem;
+    bottom: -4.5rem;
+    height: 130%;
+    pointer-events: auto;
+    z-index: 4;
+}
+
+.monument-wrapper img {
+    height: 100%;
+    object-fit: contain;
+
+    /* =====================================================
+       🔥 SOFTER SHADOW + ATMOSPHERE
+       ===================================================== */
+    filter:
+            drop-shadow(0 18px 32px rgba(0, 0, 0, 0.55))
+            saturate(1.05)
+            contrast(1.05);
+
+    transition: transform 0.4s ease;
+}
+
+.monument-wrapper:hover img {
+    transform: scale(1.12);
+}
+
+/* ================= FAVORITE ================= */
+
+.favorite {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+
+    /* =====================================================
+       🔥 GLASS BUTTON
+       ===================================================== */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.25),
+            0 8px 20px rgba(0, 0, 0, 0.35);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.favorite:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.14);
+}

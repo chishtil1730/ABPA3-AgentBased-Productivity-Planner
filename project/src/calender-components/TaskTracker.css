@@ -1,0 +1,333 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes progressGrow {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--progress);
+    }
+}
+
+body {
+    margin: 0;
+    font-family: "Epilogue", sans-serif;
+    z-index: 70;
+}
+
+/* ===============================
+   GLASS CARD
+================================ */
+
+.progress-card {
+    width: 340px;
+
+    padding: 40px 22px;
+    border-radius: 26px;
+
+    /* DARK GLASS */
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.06),
+                    rgba(255, 255, 255, 0.015)
+            );
+
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    box-shadow:
+            0 40px 80px rgba(0, 0, 0, 0.65),
+            inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    color: #eaeaea;
+
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+.progress-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    opacity: 0;
+    animation: fadeInUp 0.4s ease-out forwards;
+    animation-delay: 0.05s;
+}
+
+.progress-icon {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* ===============================
+   BIG NUMBER
+================================ */
+
+.progress-value {
+    margin-top: 14px;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1;
+
+    color: rgba(255, 255, 255, 0.95);
+
+    opacity: 0;
+    animation: fadeInUp 0.45s ease-out forwards;
+    animation-delay: 0.12s;
+
+    will-change: transform, opacity;
+}
+
+.progress-percent {
+    font-size: 28px;
+    margin-left: 4px;
+    opacity: 0.55;
+}
+
+/* ===============================
+   PROGRESS ROW
+================================ */
+
+.progress-row {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    opacity: 0;
+    animation: fadeInUp 0.45s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+/* Bar container */
+.progress-bar {
+    flex: 1;
+    height: 14px;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    overflow: hidden;
+}
+
+/* Filled bar */
+.progress-fill {
+    height: 100%;
+    border-radius: 999px;
+
+    background: linear-gradient(
+            90deg,
+            #7cffcb,
+            #3bd1ff
+    );
+
+    box-shadow:
+            0 0 16px rgba(124, 255, 203, 0.6),
+            0 0 32px rgba(59, 209, 255, 0.35);
+
+    width: 0;
+    animation: progressGrow 0.8s ease-out forwards;
+    animation-delay: 2.3s;
+
+    transition: width 0.6s ease-out;
+}
+
+/* ===============================
+   DUE / GOAL PILL
+================================ */
+
+.progress-due {
+    padding: 6px 12px;
+    font-size: 11px;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+}
+
+.progress-fill.time {
+    background: linear-gradient(
+            90deg,
+            #fbbf24,
+            #f97316
+    );
+
+    box-shadow:
+            0 0 16px rgba(251, 191, 36, 0.5),
+            0 0 32px rgba(249, 115, 22, 0.35);
+}
+
+.progress-fill {
+    position: relative;
+    isolation: isolate; /* important for glow layering */
+}
+
+/* soft diffused glow behind bar */
+.progress-fill::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: inherit;
+
+    background: inherit;
+    filter: blur(14px);
+    opacity: 0.55;
+
+    z-index: -1;
+}
+
+
+.progress-card {
+    width: 365px;
+    height: 230px; /* FIXED HEIGHT — aligns with right widget */
+    padding: 26px 22px; /* reduced vertical padding */
+    border-radius: 26px;
+
+    /* TRUE DARK GLASS */
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(18, 18, 18, 0.72),
+                    rgba(8, 8, 8, 0.78)
+            );
+
+    backdrop-filter: blur(28px) saturate(140%);
+    -webkit-backdrop-filter: blur(28px) saturate(140%);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+            0 30px 70px rgba(0, 0, 0, 0.75),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    color: #eaeaea;
+
+    animation: fadeInUp 0.5s ease-out both;
+
+    box-sizing: border-box;
+    position: relative;
+}
+
+
+.progress-card:hover {
+    transform: translateY(-6px) scale(1.015);
+
+    box-shadow:
+            0 60px 120px rgba(0, 0, 0, 0.75),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+    border-color: rgba(255, 255, 255, 0.22);
+}
+.progress-card:hover .progress-header {
+    transform: translateY(-1px);
+    opacity: 0.75;
+}
+.progress-value {
+    margin-top: 12px;
+    font-size: 52px; /* slightly reduced */
+    font-weight: 500;
+    line-height: 0.95; /* IMPORTANT — removes vertical bloat */
+
+    color: rgba(255, 255, 255, 0.95);
+
+    opacity: 0;
+    transition:
+            transform 0.45s cubic-bezier(.2,.8,.2,1);
+
+
+    will-change: transform, opacity;
+}
+
+.progress-value:hover {
+    scale: 1.05;
+    transition: 0.45s ease-in-out;
+}
+
+
+.progress-card:hover .progress-value {
+    transform: scale(1.06);
+    filter: brightness(1.08);
+}
+.progress-card:hover .progress-fill {
+    filter: brightness(1.15) saturate(1.15);
+}
+
+.progress-card:hover .progress-fill::after {
+    opacity: 0.85;
+    filter: blur(18px);
+}
+.progress-row {
+    margin-top: 16px; /* reduced */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    opacity: 0;
+    animation: fadeInUp 0.45s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.progress-card:hover .progress-row {
+    transform: translateY(-2px);
+}
+.progress-due {
+    transition:
+            background 0.3s ease,
+            border-color 0.3s ease,
+            transform 0.25s ease;
+}
+
+.progress-card:hover .progress-due {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-1px);
+}
+.progress-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+
+    background:
+            radial-gradient(
+                    120% 120% at 50% 0%,
+                    rgba(255, 255, 255, 0.04),
+                    transparent 60%
+            );
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+
+.progress-card:hover::after {
+    opacity: 1;
+}

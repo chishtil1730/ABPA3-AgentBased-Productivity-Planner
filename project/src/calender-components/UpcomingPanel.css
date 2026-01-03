@@ -1,0 +1,513 @@
+.Full-Comp{
+    scale: 0.85;
+    position: relative;
+    right: 0;
+    top: 0;
+}
+
+.event {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+.event-bar {
+    width: 4px;
+    height: 100%;
+    min-height: 42px;
+
+    border-radius: 4px;
+    margin-top: 4px;
+
+    flex-shrink: 0;
+}
+.event-bar.green {
+    background: linear-gradient(
+            180deg,
+            #6ef3c5,
+            #2fdc8f
+    );
+    box-shadow:
+            0 0 10px rgba(110, 243, 197, 0.6),
+            0 0 12px rgba(110, 243, 197, 0.35);
+}
+
+.event-bar.yellow {
+    background: linear-gradient(
+            180deg,
+            #ffe08a,
+            #f6b73c
+    );
+    box-shadow:
+            0 0 10px rgba(255, 224, 138, 0.5),
+            0 0 11px rgba(255, 183, 60, 0.35);
+}
+.event:hover .event-bar {
+    box-shadow:
+            0 0 14px currentColor,
+            0 0 28px currentColor;
+}
+
+
+
+.SignInButton {
+    color: #ed0000;
+    position: relative;
+    scale: 1.2;
+    bottom: 8rem;
+    z-index: 9999;
+}
+
+.LoadingButton {
+    color: #9a9a9a;
+}
+
+.upcoming-wrapper {
+    display: grid;
+    place-items: center;
+    padding: 40px;
+    background: transparent;
+    font-family: "Epilogue", sans-serif;
+}
+
+/* Container-safe override */
+.upcoming-root {
+    position: relative;   /* override layout escape */
+    right: 0;
+    bottom: 0;
+    scale: 0.85;          /* keep your intended scale */
+}
+
+
+.upcoming-panel {
+    background:
+            radial-gradient(
+                    120% 120% at 0% 0%,
+                    rgba(255, 255, 255, 0.06),
+                    rgba(0, 0, 0, 0.85)
+            ),
+            linear-gradient(
+                    180deg,
+                    rgba(40, 40, 40, 0.85),
+                    rgba(15, 15, 15, 0.95)
+            );
+
+    backdrop-filter: blur(28px);
+}
+
+
+.upcoming-panel {
+    width: 520px;
+    padding: 18px;
+    border-radius: 28px;
+    display: flex;
+    gap: 18px;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(35, 35, 35, 0.75),
+                    rgba(15, 15, 15, 0.85)
+            );
+
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+
+    box-shadow:
+            0 40px 80px rgba(0, 0, 0, 0.7),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    color: #eaeaea;
+}
+
+
+.upcoming-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+.silk-overlay {
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.25),
+                    rgba(0, 0, 0, 0.55)
+            );
+}
+.silk-window canvas {
+    filter: blur(0.3px);
+}
+
+
+
+/* ───────── Left Date Card ───────── */
+
+.date-card {
+    position: relative;
+    width: 150px;
+    border-radius: 22px;
+    padding: 16px;
+    overflow: hidden;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.25),
+            0 12px 30px rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+
+    color: #ffffff;
+}
+
+.date-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.date-bg canvas {
+    filter: blur(1.5px);
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+.date-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.45)
+    );
+}
+.date-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+
+
+
+.date-main {
+    font-size: 60px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.date-sub {
+    font-size: 17px;
+    opacity: 0.75;
+    transition: transform 0.2s ease-in-out;
+}
+.date-sub:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.date-meta {
+    margin-top: auto;
+    font-size: 13px;
+    opacity: 0.6;
+}
+.date-day {
+    transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
+    font-size: 80px;
+    position: relative;
+    left: -0.2rem;
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+}
+.date-day:hover {
+    transform: scale(1.05);
+    color: #d54444;
+    cursor: pointer;
+}
+.date-month {
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+.date-sub {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.date-meta {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+
+/* ───────── Events ───────── */
+
+.events {
+    flex: 1;
+    padding: 8px 4px;
+}
+
+.events-title {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    opacity: 0.55;
+    margin-bottom: 14px;
+}
+
+/* ───────── Focus isolation on hover ───────── */
+
+/* smooth transitions for all events */
+.event {
+    transition:
+            filter 0.25s ease,
+            opacity 0.25s ease,
+            transform 0.25s ease;
+}
+
+/* when hovering anywhere inside the events list */
+/* Default */
+.event {
+    transition:
+            filter 0.25s ease,
+            opacity 0.25s ease,
+            transform 0.25s ease;
+}
+
+/* When hovering ONE event, blur its siblings */
+.events:has(.event:hover) .event {
+    filter: blur(2px);
+    opacity: 0.45;
+}
+
+/* Keep the hovered event sharp */
+.events:has(.event:hover) .event:hover {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+/* keep the hovered event sharp */
+.events:hover .event:hover {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+/* ensure bars & text stay crisp */
+.events:hover .event:hover * {
+    filter: blur(0);
+}
+
+
+.event {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+.event:hover {
+    transform: translateX(4px);
+    transition: 0.2s ease-in-out;
+}
+/* Add this to your UpcomingPanel.css */
+
+.event-day {
+    font-size: 13px;
+    opacity: 0.75;
+    font-family: "Epilogue", sans-serif;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+/* Add these to your existing CSS */
+
+.events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.refresh-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 6px 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.refresh-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+}
+
+.refresh-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.refresh-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.refresh-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.refresh-btn svg.spinning {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.event-day {
+    font-size: 13px;
+    opacity: 0.75;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.event-bar {
+    width: 4px;
+    border-radius: 4px;
+    margin-top: 4px;
+}
+
+.event-bar.green {
+    background: linear-gradient(
+            180deg,
+            #6ef3c5,
+            #2fdc8f
+    );
+    box-shadow: 0 0 10px rgba(110, 243, 197, 0.6);
+}
+
+.event-bar.yellow {
+    background: linear-gradient(
+            180deg,
+            #ffe08a,
+            #f6b73c
+    );
+    box-shadow: 0 0 10px rgba(255, 224, 138, 0.5);
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.event-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.event-time {
+    font-size: 13px;
+    opacity: 0.65;
+}
+
+.icon {
+    margin-left: 4px;
+    opacity: 0.8;
+}
+
+
+/* Ensure silk fades smoothly instead of resetting */
+/* Smooth fade instead of remount */
+.date-bg {
+    transition:
+            opacity 0.45s ease,
+            filter 0.45s ease;
+}
+
+/* 🎤 Mic-active: reduce GPU load */
+.mic-active .date-bg {
+    opacity: 0.15;
+    filter: blur(1.6px) saturate(0.7);
+    pointer-events: none;
+}
+
+
+/* Force Silk into its own GPU layer */
+.silk-freeze {
+    width: 100%;
+    height: 100%;
+
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Mic active = freeze & detach from compositing */
+.mic-active .silk-freeze {
+    filter: none;
+    transform: translateZ(0) scale(1);
+
+    /* 🔑 This line prevents flicker */
+    contain: strict;
+}
+
+/* Reduce compositing cost when mic is active */
+.mic-active .date-bg {
+    opacity: 0.15;
+    filter: none;
+}
+
+.silk-snapshot {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0.15;
+    filter: blur(1.2px) saturate(0.8);
+}
+
+.silk-frozen {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0.18;
+    filter: blur(1.2px) saturate(0.85);
+    transform: scale(1.04);
+
+    pointer-events: none;
+}
