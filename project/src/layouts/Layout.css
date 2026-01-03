@@ -1,0 +1,101 @@
+/* 1. Reset defaults to ensure no gaps or black borders */
+/* Force html and body to be exactly the viewport size with no scrolling */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: rgb(30, 27, 27);
+}
+
+/* 2. Root Layout Container */
+/* Changed to position: fixed to ensure it doesn't move if content loads slowly */
+.layout-root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* 3. Bento Grid Container */
+.bento-container {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    /* ADJUSTED RATIOS:
+       1.8fr = Red Block (widest)
+       1fr   = Green/Blue (middle)
+       0.7fr = Yellow/Orange (narrowest to adjust for the deficit)
+    */
+    grid-template-columns: 1.8fr 1fr 0.7fr;
+    grid-template-rows: 1fr 0.6fr;
+    gap: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+    pointer-events: none/* Ensures content stays above the background */
+}
+
+
+
+/* ADD THIS: Re-enable interaction for your actual widgets */
+.Flowchart,
+.RightPanel,
+.LeftPanel,
+.Kanban,
+.Voice,
+.bento-item {
+    pointer-events: auto;
+}
+.Flowchart {
+    position: relative;
+    top: -0.8rem;
+}
+
+.RightPanel {
+    scale: 1;
+    position: absolute;
+    right: 22.5rem;   /* leave space for future container */
+    bottom: -3.35rem;  /* spacing from bottom */
+}
+
+.Voice {
+    position: fixed;
+    top: 0.4rem;
+    left: 45rem;
+}
+
+.bento-item {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Red block spans both rows on the far left */
+.red-block {
+    width: 92%;
+    height: 164%;
+    background-color: #c40000;
+}
+
+.green-block {
+    background-color: #4f7942;
+}
+
+.yellow-block {
+    background-color: #fbd364;
+}
+
+.blue-block {
+    background-color: #4a78c2;
+}
+
+.orange-block {
+    background-color: #f38d45;
+}
