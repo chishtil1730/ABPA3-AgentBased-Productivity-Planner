@@ -1,0 +1,93 @@
+.layout-shell {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+}
+
+/* 🔥 Background Layer - NEVER animated, always full screen */
+.layout-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    transform: translateZ(0);
+    contain: strict;
+}
+
+/* 🔥 Removed .Layout animation styles - no longer needed */
+
+.preloader-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #c8bdaf;
+}
+
+.kanban-underlay {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* Ensure the overlay doesn't block interactions */
+.overlay-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+}
+
+.reveal-block {
+    flex: 1;
+    height: 100%;
+    background-color: #191919;
+}
+
+/* The Staircase Blocks */
+.blocks-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* The Counter Style */
+.counter {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    font-size: 12vw;
+    font-family: "pixel", sans-serif;
+    font-weight: 900;
+    color: #ffffff;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.logo-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.reveal-logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+    object-fit: contain;
+}

@@ -1,0 +1,11 @@
+.react-flow__viewport {
+    overflow: visible !important;
+}
+
+.react-flow__nodes {
+    overflow: visible !important;
+}
+
+.react-flow__node {
+    overflow: visible !important;
+}

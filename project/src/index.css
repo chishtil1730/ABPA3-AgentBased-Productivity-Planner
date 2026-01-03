@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1. CRITICAL: Fixed the height hierarchy.
+   React Flow will collapse if any of these are missing 100% height.
+*/
+html,
+body,
+#root {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents double scrollbars */
+    background-color: #000; /* Match your dark theme */
+}
+
+/* 2. Custom scrollbar */
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+
+/* 3. Kanban Layout classes */
+.kanbanReveal {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+
+.CustomKanban {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 4. REMOVED: .react-flow__viewport overflow overrides.
+   React Flow needs to control its own overflow to calculate node positions.
+*/
+
+/* 5. Dragging State */
+.card-dragging {
+    opacity: 0.3 !important;
+    transform: scale(0.9);
+}
+
+/* 6. Custom Fonts */
+@font-face {
+    font-family: "AltoneTrial";
+    src: url("/Unbounded-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "pixel";
+    src: url("TripleDotDigital7-dojZ.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Epilogue";
+    src: url("/Unbounded-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Gasok;
+    src: url("GasoekOne-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 7. Node Styling */
+.node-container {
+    padding: 16px 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(180deg, rgba(40, 40, 40, 0.9) 0%, rgba(30, 30, 30, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1);
+    z-index: 1;
+}
+
+.node-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.node-container.selected {
+    background: linear-gradient(180deg, rgba(90, 90, 90, 0.95) 0%, rgba(60, 60, 60, 0.95) 100%);
+    border: 1.5px solid rgba(255, 255, 255, 0.30);
+}
+
+/* 8. Custom Cursor logic */
+html,
+body,
+#root,
+*,
+*::before,
+*::after {
+    cursor: none !important;
+}
