@@ -34,6 +34,11 @@ Instead of juggling disconnected tools, ABPA3 brings together:
 
 All inside a single, cohesive workspace.
 
+### ⏱ Focused Build Time
+
+![Focused Build Time](https://img.shields.io/badge/Focused%20Build%20Time-140%2B%20hours-blueviolet?style=for-the-badge)
+
+
 
 ---
 ## ❗Read files from documentation
@@ -158,24 +163,24 @@ The interface is designed as a **natural progression** of how work actually happ
 - Saves time on repetitive writing
 
 ---
-## Concepts used in the development of ABPA3:
-| Concept                                  | Where Used                  | What It Means                                                                      | Why It Was Needed                                                                                  |
-| ---------------------------------------- | --------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| **Digital Audio Signal Processing**      | `useAudioLevel` hook        | Real-time analysis of microphone audio levels using time-domain amplitude sampling | To drive responsive UI feedback (voice orb, mic intensity, animations) based on actual voice input |
-| **RMS Smoothing (Root Mean Square)**     | Audio level visualization   | A mathematical technique to smooth fluctuating audio signals                       | Prevents jittery UI and produces natural, human-like mic animations                                |
-| **Local Speech-to-Text Pipeline**        | Whisper integration         | Running STT fully offline using Whisper.cpp                                        | Ensures privacy, low latency, and no cloud dependency                                              |
-| **Agent-Based System Architecture**      | n8n + AI agents             | Independent agents handling specific responsibilities (mail, planning, analysis)   | Makes the system modular, extensible, and easier to reason about                                   |
-| **Proxy Server for CORS & Hotlinking**   | Image / asset fetching      | A backend intermediary that fetches external resources on behalf of the frontend   | Bypasses AWS S3 CORS restrictions and prevents broken image loading                                |
-| **CORS (Cross-Origin Resource Sharing)** | AWS image access            | Browser security mechanism restricting cross-domain requests                       | Required architectural workaround to safely access external assets                                 |
-| **Local-First Architecture**             | Entire app design           | Data and intelligence run on the user’s machine first                              | Improves privacy, reliability, and offline usability                                               |
-| **Natural Language → Structured Action** | Planner & agents            | Translating free-form user input into structured tasks/events                      | Core productivity goal of ABPA3                                                                    |
-| **Fuzzy Search & Approximate Matching**  | Faculty search dropdown     | Matching user input even with typos or partial names                               | Improves UX and avoids exact-match limitations                                                     |
-| **Natural Sorting Algorithms**           | Image → PDF pipeline        | Sorting filenames numerically instead of lexicographically                         | Ensures correct page order (1, 2, 10 instead of 1, 10, 2)                                          |
-| **Media Preprocessing & Compression**    | Image-to-PDF conversion     | Resizing, rotating, and compressing images before PDF generation                   | Reduces file size while keeping readability                                                        |
-| **EXIF Orientation Handling**            | Image processing            | Reading camera metadata to correct image rotation                                  | Prevents incorrect orientation from phone-captured images                                          |
-| **Event-Driven UI Updates**              | Voice & Kanban interactions | UI reacts to internal state changes and custom events                              | Enables smooth real-time feedback without polling                                                  |
-| **State History (Undo / Redo)**          | Notes & Kanban              | Tracking past and future states                                                    | Allows non-destructive editing and experimentation                                                 |
-| **Visual Thinking Interfaces**           | Flow canvas                 | Representing thoughts as spatial, visual structures                                | Mirrors how humans actually think and plan                                                         |
+## 🧠 Non-Obvious Technical Concepts Used
+
+| Concept | Where It Appears | Why It’s Non-Obvious |
+|------|----------------|----------------------|
+| **Real-Time Audio Signal Sampling** | `useAudioLevel` | Continuously sampling microphone amplitude and mapping it to UI feedback crosses into digital signal processing, which is uncommon in typical frontend apps |
+| **RMS-Based Temporal Smoothing** | Voice orb / mic intensity | Applying RMS smoothing stabilizes noisy audio signals and aligns UI response with human loudness perception |
+| **EXIF-Aware Media Normalization** | Image → PDF pipeline | Correcting orientation using EXIF metadata avoids subtle double-rotation bugs common in media pipelines |
+| **Proxy Server Architecture** | Image proxy service | Introducing a backend proxy to fetch third-party assets requires understanding browser security boundaries and request delegation |
+| **AWS S3 CORS Constraint Handling** | External image loading | Navigating AWS S3 CORS policies and hotlink restrictions requires backend mediation rather than frontend workarounds |
+| **Proxy-Mediated Asset Fetching** | Frontend ↔ backend boundary | Routing requests through a controlled server layer enables secure, compliant access to restricted resources |
+| **Local-First STT Architecture** | Whisper.cpp integration | Running speech-to-text locally prioritizes privacy, determinism, and latency over cloud convenience |
+| **Agent Responsibility Isolation** | n8n agents | Decomposing system intelligence into specialized agents avoids monolithic AI logic and improves scalability |
+| **Event-Driven UI Synchronization** | Voice + Kanban | Custom event dispatching enables real-time UI reactions without polling or tight component coupling |
+| **Natural Ordering Algorithms** | Media batching | Numeric-aware sorting prevents subtle ordering bugs caused by lexicographic file sorting |
+| **UI as a Signal Consumer** | Voice visualization | Treating UI as a consumer of real-world signals (audio input) rather than only user actions is a paradigm shift |
+| **Constraint-Driven UX Design** | CORS, offline-first | UX decisions shaped by platform and security constraints rather than idealized assumptions |
+
+
 
 
 
