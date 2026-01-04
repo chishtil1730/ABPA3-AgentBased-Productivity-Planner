@@ -70,6 +70,23 @@ function parseCSV(text) {
 }
 
 /* =========================
+    Email Validity.
+========================= */
+function isValidEmail(email) {
+    if (!email) return false;
+
+    // Must not start with a number
+    if (/^\d/.test(email)) return false;
+
+    // Basic but strict structure
+    const regex =
+        /^[a-zA-Z][a-zA-Z0-9._]*@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+$/;
+
+    return regex.test(email);
+}
+
+
+/* =========================
    MAIL WIDGET
 ========================= */
 export default function MailWidget() {
@@ -94,6 +111,14 @@ export default function MailWidget() {
     const [issueType, setIssueType] = useState("");
     const [templateOpen, setTemplateOpen] = useState(false);
     const [tempActiveIndex, setTempActiveIndex] = useState(-1);
+
+    const isEmailValid = useMemo(() => isValidEmail(email.trim()), [email]);
+
+    const [showInvalidMail, setShowInvalidMail] = useState(false);
+    const [showMissingFields, setShowMissingFields] = useState(false);
+
+
+
 
     // Custom Template Selection Handler
     function handleTemplateClick(item) {
@@ -276,9 +301,19 @@ export default function MailWidget() {
 
     async function handleSend() {
         if (!email.trim() || !message.trim()) {
-            alert("Email and message are required");
+            setShowMissingFields(true);
+            setTimeout(() => setShowMissingFields(false), 2000);
             return;
         }
+
+
+        if (!isValidEmail(email.trim())) {
+            setShowInvalidMail(true);
+            setTimeout(() => setShowInvalidMail(false), 2000);
+            return;
+        }
+
+
         setShowConfirm(true);
     }
 
@@ -311,6 +346,7 @@ export default function MailWidget() {
 
             <div style={styles.content}>
                 <div style={styles.form}>
+                    {/* TO */}
                     <div style={styles.inputRow}>
                         <label style={styles.label}>To:</label>
                         <div style={styles.selectWrapper}>
@@ -318,17 +354,32 @@ export default function MailWidget() {
                                 value={selected ? selected.name : query}
                                 placeholder="Search recipient"
                                 style={styles.input}
-                                onChange={(e) => { setQuery(e.target.value); setSelected(null); setOpen(true); }}
+                                onChange={(e) => {
+                                    setQuery(e.target.value);
+                                    setSelected(null);
+                                    setOpen(true);
+                                }}
                                 onFocus={() => setOpen(true)}
                                 onKeyDown={handleKeyDown}
                             />
+
                             {open && (
                                 <div style={styles.dropdown}>
                                     {results.map((p, i) => (
                                         <div
                                             key={i}
-                                            style={{ ...styles.option, background: i === activeIndex ? "rgba(255,255,255,0.12)" : "transparent" }}
-                                            onMouseDown={() => { setSelected(p); setQuery(""); setOpen(false); }}
+                                            style={{
+                                                ...styles.option,
+                                                background:
+                                                    i === activeIndex
+                                                        ? "rgba(255,255,255,0.12)"
+                                                        : "transparent"
+                                            }}
+                                            onMouseDown={() => {
+                                                setSelected(p);
+                                                setQuery("");
+                                                setOpen(false);
+                                            }}
                                         >
                                             <div style={styles.optionName}>{p.name}</div>
                                             <div style={styles.optionSub}>{p.office}</div>
@@ -339,25 +390,42 @@ export default function MailWidget() {
                         </div>
                     </div>
 
+                    {/* EMAIL */}
                     <div style={styles.inputRow}>
                         <label style={styles.label}>Email:</label>
                         <input
-                            style={styles.input}
                             value={email}
                             placeholder="Enter email address"
                             onChange={(e) => setEmail(e.target.value)}
+                            style={{
+                                ...styles.input,
+                                border:
+                                    email.length === 0
+                                        ? styles.input.border
+                                        : isEmailValid
+                                            ? "1px solid rgba(34,236,117,0.75)"
+                                            : "1px solid rgba(255,80,80,0.85)",
+                                boxShadow:
+                                    email.length === 0
+                                        ? styles.input.boxShadow
+                                        : isEmailValid
+                                            ? "0 0 10px rgba(34,236,117,0.45)"
+                                            : "0 0 10px rgba(255,80,80,0.55)"
+                            }}
                         />
                     </div>
 
+                    {/* MESSAGE */}
                     <div style={styles.bottomArea}>
-                        <textarea
-                            style={styles.textarea}
-                            placeholder="Type your message..."
-                            value={message}
-                            onChange={(e) => setMessage(e.target.value)}
-                        />
+                <textarea
+                    style={styles.textarea}
+                    placeholder="Type your message..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                />
 
                         <div style={styles.circleButtonRow}>
+                            {/* TEMPLATE */}
                             <div style={styles.customSelectWrapper}>
                                 <div
                                     style={styles.templateTrigger}
@@ -365,15 +433,28 @@ export default function MailWidget() {
                                     onKeyDown={handleTemplateKeyDown}
                                     tabIndex={0}
                                 >
-                                    <span style={styles.triggerText}>
-                                        {ISSUE_TEMPLATES.find(i => i.value === issueType)?.label || "Select Issue"}
-                                    </span>
-                                    <ChevronUp size={14} style={{ transform: templateOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: '0.2s', opacity: 0.6 }} />
+                            <span style={styles.triggerText}>
+                                {ISSUE_TEMPLATES.find(i => i.value === issueType)?.label || "Select Issue"}
+                            </span>
+                                    <ChevronUp
+                                        size={14}
+                                        style={{
+                                            transform: templateOpen ? "rotate(180deg)" : "rotate(0deg)",
+                                            transition: "0.2s",
+                                            opacity: 0.6
+                                        }}
+                                    />
                                 </div>
 
                                 {templateOpen && (
                                     <>
-                                        <div style={styles.templateOverlay} onClick={() => { setTemplateOpen(false); setTempActiveIndex(-1); }} />
+                                        <div
+                                            style={styles.templateOverlay}
+                                            onClick={() => {
+                                                setTemplateOpen(false);
+                                                setTempActiveIndex(-1);
+                                            }}
+                                        />
                                         <div style={styles.templateMenu}>
                                             {ISSUE_TEMPLATES.map((item, idx) => (
                                                 <div
@@ -381,9 +462,10 @@ export default function MailWidget() {
                                                     className="template-item"
                                                     style={{
                                                         ...styles.templateOption,
-                                                        background: idx === tempActiveIndex || issueType === item.value
-                                                            ? "rgba(255,255,255,0.12)"
-                                                            : "transparent"
+                                                        background:
+                                                            idx === tempActiveIndex || issueType === item.value
+                                                                ? "rgba(255,255,255,0.12)"
+                                                                : "transparent"
                                                     }}
                                                     onClick={() => handleTemplateClick(item)}
                                                 >
@@ -395,21 +477,30 @@ export default function MailWidget() {
                                 )}
                             </div>
 
+                            {/* ACTIONS */}
                             <div style={styles.actionButtons}>
                                 <button
                                     className="mail-button"
-                                    onMouseDown={(e) => { e.preventDefault(); e.stopPropagation(); setOpen(false); toggleMic(); }}
+                                    onMouseDown={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        setOpen(false);
+                                        toggleMic();
+                                    }}
                                     style={styles.micButton(micOn)}
-                                    title={micOn ? "Stop recording" : "Start recording"}
                                 >
                                     <Mic size={18} color="white" />
                                 </button>
 
                                 <button
                                     className="mail-button"
-                                    onMouseDown={(e) => { e.preventDefault(); e.stopPropagation(); setOpen(false); handleSend(); }}
+                                    onMouseDown={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        setOpen(false);
+                                        handleSend();
+                                    }}
                                     style={styles.sendButton(sending)}
-                                    title="Send message"
                                     disabled={sending}
                                 >
                                     <Send size={16} color="white" />
@@ -419,14 +510,22 @@ export default function MailWidget() {
                     </div>
                 </div>
 
+                {/* RIGHT PANE */}
                 <div style={styles.rightPane}>
                     {selected ? (
                         <>
                             <div style={styles.imageWrapper}>
                                 {!imgError && imageSrc ? (
-                                    <img src={imageSrc} alt={selected.name} style={styles.photo} onError={() => setImgError(true)} />
+                                    <img
+                                        src={imageSrc}
+                                        alt={selected.name}
+                                        style={styles.photo}
+                                        onError={() => setImgError(true)}
+                                    />
                                 ) : (
-                                    <div style={styles.fallbackAvatar}>{selected.name?.[0] || "?"}</div>
+                                    <div style={styles.fallbackAvatar}>
+                                        {selected.name?.[0] || "?"}
+                                    </div>
                                 )}
                             </div>
                             <div style={styles.personInfo}>
@@ -435,36 +534,90 @@ export default function MailWidget() {
                             </div>
                         </>
                     ) : (
-                        <div style={styles.previewCard}><div style={styles.fallbackAvatar}>?</div></div>
+                        <div style={styles.previewCard}>
+                            <div style={styles.fallbackAvatar}>?</div>
+                        </div>
                     )}
                 </div>
             </div>
 
-            {showSuccess && (
-                <div style={styles.successToast}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <div style={styles.successIcon}>✓</div>
-                        <span style={{ fontSize: 11, fontWeight: 500, color: '#fff' }}>Mail Sent</span>
-                    </div>
-                    <button style={styles.toastClose} onClick={() => setShowSuccess(false)}><X size={14} /></button>
-                </div>
-            )}
+            {/* TOASTS */}
+            {[
+                showSuccess && { text: "Mail Sent", type: "success" },
+                showInvalidMail && { text: "Invalid Email", type: "error" },
+                showMissingFields && { text: "Email & Message Required", type: "warning" }
+            ]
+                .filter(Boolean)
+                .map(({ text, type }, i) => {
+                    const variant = styles.toastVariants[type];
 
+                    return (
+                        <div
+                            key={i}
+                            style={{
+                                ...styles.successToast,
+                                borderLeft: variant.borderLeft,
+                                boxShadow: variant.boxShadow
+                            }}
+                        >
+                            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                                <div
+                                    style={{
+                                        ...styles.successIcon,
+                                        background: variant.iconBg
+                                    }}
+                                >
+                                    !
+                                </div>
+
+                                <span
+                                    style={{
+                                        fontSize: 11,
+                                        fontWeight: 500,
+                                        color: "#fff",
+                                        whiteSpace: "nowrap",
+                                        lineHeight: "1"
+                                    }}
+                                >
+                        {text}
+                    </span>
+                            </div>
+
+                            <button style={styles.toastClose}>
+                                <X size={14} />
+                            </button>
+                        </div>
+                    );
+                })}
+
+
+            {/* CONFIRM */}
             {showConfirm && (
                 <>
-                    <div style={styles.localOverlay} onClick={cancelSend}></div>
+                    <div style={styles.localOverlay} onClick={cancelSend} />
                     <div style={styles.confirmDialog}>
                         <div style={styles.confirmTitle}>Confirm Send</div>
-                        <div style={styles.confirmText}>Send email to <strong>{email}</strong>?</div>
-                        <div style={styles.confirmMessage}>{message.length > 100 ? message.substring(0, 100) + "..." : message}</div>
+                        <div style={styles.confirmText}>
+                            Send email to <strong>{email}</strong>?
+                        </div>
+                        <div style={styles.confirmMessage}>
+                            {message.length > 100
+                                ? message.substring(0, 100) + "..."
+                                : message}
+                        </div>
                         <div style={styles.confirmButtons}>
-                            <button style={styles.cancelButton} onClick={cancelSend}>Cancel</button>
-                            <button style={styles.confirmButton} onClick={confirmSend}>Send</button>
+                            <button style={styles.cancelButton} onClick={cancelSend}>
+                                Cancel
+                            </button>
+                            <button style={styles.confirmButton} onClick={confirmSend}>
+                                Send
+                            </button>
                         </div>
                     </div>
                 </>
             )}
         </div>
+
     );
 }
 
@@ -858,16 +1011,26 @@ const styles = {
     },
 
     successToast: {
-        position: "absolute", top: 12, left: "50%", transform: "translateX(-50%)",
-        width: 140, height: 32, padding: "0 10px", borderRadius: 12, zIndex: 6000,
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        // Lowered alpha from 0.7 to 0.3 for a much clearer glass look
-        background: "rgba(255, 255, 255, 0.05)",
-        border: "1px solid rgba(255, 255, 255, 0.15)",
-        backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)",
-        boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-        animation: "toast-in 0.3s ease-out"
+        position: "absolute",
+        top: 12,
+        left: "50%",
+        transform: "translateX(-50%)",
+
+        minWidth: 200,            // ✅ ensures long text fits
+        maxWidth: 320,            // ✅ prevents huge toasts
+        padding: "6px 14px",      // ✅ gives breathing room
+
+        borderRadius: 14,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 10,
+
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
     },
+
     successIcon: {
         width: 16, height: 16, borderRadius: "50%",
         // Changed to a transparent green glow instead of solid green
@@ -882,5 +1045,23 @@ const styles = {
         color: "rgba(255,255,255,0.3)",
         cursor: "pointer", display: "flex", alignItems: "center", padding: 2,
         transition: "color 0.2s ease"
+    },
+    toastVariants: {
+        success: {
+            borderLeft: "3px solid rgba(34,236,117,0.9)",
+            boxShadow: "0 0 14px rgba(34,236,117,0.45)",
+            iconBg: "rgba(34,236,117,0.85)"
+        },
+        error: {
+            borderLeft: "3px solid rgba(255,80,80,0.9)",
+            boxShadow: "0 0 14px rgba(255,80,80,0.5)",
+            iconBg: "rgba(255,80,80,0.85)"
+        },
+        warning: {
+            borderLeft: "3px solid rgba(255,196,0,0.95)",
+            boxShadow: "0 0 14px rgba(255,196,0,0.55)",
+            iconBg: "rgba(255,196,0,0.9)"
+        }
     }
+
 };
