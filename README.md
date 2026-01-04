@@ -150,6 +150,54 @@ The interface is designed as a **natural progression** of how work actually happ
 
 ---
 
+## ✨ What is ABPA3?
+
+ABPA3 is an experimental productivity system built around **agent-based automation** and **visual-first thinking**.
+
+Instead of juggling disconnected tools, ABPA3 brings together:
+- Visual flowcharts for thinking
+- Kanban boards for execution
+- Calendar-aware actions
+- A fully local voice assistant
+
+All inside a single, cohesive workspace.
+
+---
+
+## ▶️ How to Run ABPA3 Locally
+
+### 1. Install Dependencies
+Follow instructions inside:
+```
+install_dependencies.txt
+```
+
+### 2. Clone the Repository
+```
+git clone https://github.com/chishtil1730/ABPA3-AgentBased-Productivity-Planner.git
+cd ABPA3-AgentBased-Productivity-Planner
+```
+
+### 3. Start Services
+
+**Python Server**
+```
+python server.py
+```
+
+**React App**
+```
+npm install
+npm start
+```
+
+**Image Proxy**
+```
+node server.js
+```
+
+Open http://localhost:3000
+
 <hr/>
 
 ## 🔁 4. Reflect — Stay in Control
@@ -188,3 +236,6 @@ UI previews represent evolving, experimental features and internal tooling.
 - Direct pushes are disabled by design
 
 ---
+
+
+
