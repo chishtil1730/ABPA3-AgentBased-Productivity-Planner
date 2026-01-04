@@ -181,6 +181,10 @@ cd ABPA3-AgentBased-Productivity-Planner
 ### 3. Start Services
 
 **Python Server**
+
+use the server.py file from server_docs and run it directly or<br>
+with this command in terminal.
+
 ```
 python server.py
 ```
