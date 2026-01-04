@@ -173,9 +173,10 @@ The interface is designed as a **natural progression** of how work actually happ
 | **Proxy Server Architecture** | Image proxy service | Introducing a backend proxy to fetch third-party assets requires understanding browser security boundaries and request delegation |
 | **AWS S3 CORS Constraint Handling** | External image loading | Navigating AWS S3 CORS policies and hotlink restrictions requires backend mediation rather than frontend workarounds |
 | **Proxy-Mediated Asset Fetching** | Frontend ↔ backend boundary | Routing requests through a controlled server layer enables secure, compliant access to restricted resources |
-| **Local-First STT Architecture** | Whisper.cpp integration | Running speech-to-text locally prioritizes privacy, determinism, and latency over cloud convenience |
+| **Local-First STT & TTS Architecture** | Whisper.cpp, piperTTS integration | Running speech-to-text locally prioritizes privacy, determinism, and latency over cloud convenience |
 | **Agent Responsibility Isolation** | n8n agents | Decomposing system intelligence into specialized agents avoids monolithic AI logic and improves scalability |
 | **Event-Driven UI Synchronization** | Voice + Kanban | Custom event dispatching enables real-time UI reactions without polling or tight component coupling |
+| **Inter Component Communication** | Voice <-> Kanban etc |Component dependent sub components just like inheritance and also info gathers and acts as security layers for more abstraction |
 | **Natural Ordering Algorithms** | Media batching | Numeric-aware sorting prevents subtle ordering bugs caused by lexicographic file sorting |
 | **UI as a Signal Consumer** | Voice visualization | Treating UI as a consumer of real-world signals (audio input) rather than only user actions is a paradigm shift |
 | **Constraint-Driven UX Design** | CORS, offline-first | UX decisions shaped by platform and security constraints rather than idealized assumptions |
