@@ -34,6 +34,15 @@ Instead of juggling disconnected tools, ABPA3 brings together:
 
 All inside a single, cohesive workspace.
 
+
+---
+## ❗Read files from documentation
+
+Documentation has:
+- All the theory
+- Encountered errors
+- Handled solutions
+
 ---
 
 ## 🧠 From Thought → Action
