@@ -1,15 +1,23 @@
 # ABPA3 – Agent-Based Productivity Planner
-
 > A local-first, agent-driven productivity workspace designed to turn thoughts into structured action.
 
 ---
 
 <!-- ===================================================== -->
-<!-- 🎥 DEMO (GIF / VIDEO WILL BE ADDED HERE LATER)        -->
+<!-- 🎥 DEMO VIDEO                                          -->
 <!-- ===================================================== -->
 
+## 🎥 Checkout ABPA3
+
+<div align="center">
+
+https://github.com/user-attachments/assets/3a09838b-e2f4-4a22-b2df-0033e2720c1e
+
 <br/>
-<br/>
+<em>ABPA3 in action: from visual thinking to voice-driven automation</em>
+
+</div>
+
 <br/>
 
 ---
@@ -41,6 +49,7 @@ The interface is designed as a **natural progression** of how work actually happ
 </p>
 
 ### Landing Page
+
 *A calm, minimal entry point that orients you inside your productivity space.*
 
 - Reduces cognitive overload
@@ -54,6 +63,7 @@ The interface is designed as a **natural progression** of how work actually happ
 </p>
 
 ### Changeable Background
+
 *Dynamic backgrounds that adapt to focus, time, and working context.*
 
 - Helps set mental state
@@ -71,6 +81,7 @@ The interface is designed as a **natural progression** of how work actually happ
 </p>
 
 ### Expanded Kanban
+
 *A full-scale Kanban board for planning and tracking execution.*
 
 - Clear task states
@@ -83,10 +94,11 @@ The interface is designed as a **natural progression** of how work actually happ
   <img src="dashboard_ui/addeventfromflowchart.png" width="820"/>
 </p>
 
-### Flowchart → Calendar
+### Flowchart → Kanban
+
 *Convert visual thinking directly into scheduled actions.*
 
-- Flowcharts aren’t just diagrams
+- Flowcharts aren't just diagrams
 - Decisions become calendar events
 - Planning turns into commitment
 
@@ -101,6 +113,7 @@ The interface is designed as a **natural progression** of how work actually happ
 </p>
 
 ### Local Voice Assistant
+
 *A fully local, low-latency voice assistant integrated into the system.*
 
 - No cloud dependency
@@ -114,6 +127,7 @@ The interface is designed as a **natural progression** of how work actually happ
 </p>
 
 ### Voice Notes
+
 *Spoken thoughts captured as structured, interactive cards.*
 
 - Think out loud
@@ -127,6 +141,7 @@ The interface is designed as a **natural progression** of how work actually happ
 </p>
 
 ### Voice → Mail
+
 *Turn voice notes into ready-to-send emails instantly.*
 
 - Removes friction from communication
@@ -173,4 +188,3 @@ UI previews represent evolving, experimental features and internal tooling.
 - Direct pushes are disabled by design
 
 ---
-
