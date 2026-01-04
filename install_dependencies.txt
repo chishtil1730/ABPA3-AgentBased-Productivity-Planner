@@ -1,0 +1,1 @@
+npm install react react-dom express framer-motion fuse.js lucide-react react-icons react-markdown remark-gfm gsap three ogl node-fetch gapi-script @xyflow/react @react-three/fiber @react-oauth/google
