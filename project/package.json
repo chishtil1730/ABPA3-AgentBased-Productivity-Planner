@@ -1,0 +1,63 @@
+{
+  "name": "kanban",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@react-oauth/google": "^0.12.2",
+    "@react-three/fiber": "^9.4.2",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@vitejs/plugin-react": "^5.1.2",
+    "@xyflow/react": "^12.10.0",
+    "aos": "^2.3.4",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.23.26",
+    "fuse.js": "^7.1.0",
+    "gapi-script": "^1.2.0",
+    "gsap": "^3.14.2",
+    "lucide-react": "^0.562.0",
+    "motion": "^12.23.26",
+    "node-fetch": "^3.3.2",
+    "ogl": "^1.0.11",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-icons": "^5.5.0",
+    "react-markdown": "^10.1.0",
+    "react-scripts": "5.0.1",
+    "remark-gfm": "^4.0.1",
+    "three": "^0.182.0",
+    "vite": "^7.3.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  }
+}
