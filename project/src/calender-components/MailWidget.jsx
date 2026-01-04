@@ -6,6 +6,7 @@ import {
     stopWhisperRecording
 } from "../voice-assistant/whisperSTT";
 
+
 import muteSound from "../assets/sounds/MicOfd.mp3";
 import unmuteSound from "../assets/sounds/MicOn.mp3";
 
@@ -127,23 +128,61 @@ export default function MailWidget() {
             const style = document.createElement("style");
             style.id = styleId;
             style.textContent = `
-                @keyframes mic-breathe {
-                    0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(255, 59, 59, 0.4); }
-                    50% { transform: scale(1.08); box-shadow: 0 0 22px rgba(255, 59, 59, 0.9); }
-                }
-                @keyframes send-pulse {
-                    0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(59, 130, 246, 0.5); }
-                    50% { transform: scale(1.15); box-shadow: 0 0 30px rgba(59, 130, 246, 0.8); }
-                }
-                @keyframes toast-in {
-                    from { transform: translate(-50%, -20px); opacity: 0; }
-                    to { transform: translate(-50%, 0); opacity: 1; }
-                }
-                .mail-button { transition: transform 0.1s ease, box-shadow 0.1s ease; }
-                .mail-button:active:not(:disabled) { transform: scale(0.92) !important; }
-                .template-item:hover { background: rgba(255,255,255,0.08) !important; }
-            `;
+    @keyframes mic-breathe {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 0 12px rgba(255, 59, 59, 0.4);
+        }
+        50% {
+            transform: scale(1.08);
+            box-shadow: 0 0 22px rgba(255, 59, 59, 0.9);
+        }
+    }
+
+    @keyframes send-pulse {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 0 16px rgba(34, 236, 117, 0.45);
+        }
+        50% {
+            transform: scale(1.15);
+            box-shadow: 0 0 30px rgba(34, 236, 117, 0.75);
+        }
+    }
+
+    @keyframes toast-in {
+        from {
+            transform: translate(-50%, -20px);
+            opacity: 0;
+        }
+        to {
+            transform: translate(-50%, 0);
+            opacity: 1;
+        }
+    }
+
+    .mail-button {
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .mail-button:active:not(:disabled) {
+        transform: scale(0.92) !important;
+    }
+
+    .mail-button:focus {
+        outline: none;
+    }
+
+    .mail-button:focus-visible {
+        outline: none;
+    }
+
+    .template-item:hover {
+        background: rgba(255,255,255,0.08) !important;
+    }
+`;
             document.head.appendChild(style);
+
         }
     }, []);
 
@@ -434,39 +473,113 @@ export default function MailWidget() {
 ========================= */
 const styles = {
     container: {
-        width: 442, height: 232, borderRadius: 22,
-        background: `radial-gradient(120% 120% at 0% 0%, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.7)), linear-gradient(180deg, rgba(35, 35, 35, 0.6), rgba(15, 15, 15, 0.75))`,
-        backdropFilter: "blur(32px)", WebkitBackdropFilter: "blur(32px)",
-        boxShadow: `0 40px 80px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.06)`,
-        padding: "12px 14px", display: "flex", flexDirection: "column", overflow: "hidden", color: "#eaeaea", position: "relative"
+        width: 442,
+        height: 232,
+        borderRadius: 24,
+        position: "relative",
+        overflow: "hidden",
+        color: "#eaf5ef",
+
+        background: `
+        radial-gradient(
+            140% 120% at 5% 0%,
+            rgba(124, 255, 178, 0.22),
+            rgba(0,0,0,0) 55%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(10, 18, 14, 0.55),
+            rgba(4, 6, 5, 0.65)
+        )
+    `,
+
+        backdropFilter: "blur(12px) saturate(135%)",
+        WebkitBackdropFilter: "blur(24px) saturate(135%)",
+
+        boxShadow: `
+        0 0 0 1px rgba(124,255,178,0.35),
+        0 0 45px rgba(124,255,178,0.25),
+        0 40px 90px rgba(0,0,0,0.8),
+        inset 0 1px 0 rgba(255,255,255,0.08)
+    `,
+
+        padding: "14px 16px",
+        display: "flex",
+        flexDirection: "column"
     },
-    header: { fontSize: 12, fontWeight: 600, letterSpacing: "0.08em", opacity: 0.55 },
+
+    header: {
+        fontSize: 12,
+        fontWeight: 600,
+        letterSpacing: "0.08em",
+        opacity: 0.7,
+        color: "#dff5ea"
+    },
+
+    label: {
+        fontSize: 10,
+        opacity: 0.55,
+        width: 40,
+        color: "#a7c2b6"
+    },
+
     content: { display: "flex", gap: 12, flex: 1 },
     form: { flex: 1, display: "flex", flexDirection: "column", gap: 6 },
     inputRow: { display: "flex", alignItems: "center", gap: 8 },
-    label: { fontSize: 10, opacity: 0.5, width: 40 },
     selectWrapper: { flex: 1, position: "relative" },
     input: {
-        width: "100%", height: 26, borderRadius: 8,
-        background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)",
-        padding: "0 10px", color: "#eaeaea", fontSize: 11, outline: "none"
+        width: "100%",
+        height: 28,
+        borderRadius: 14,
+        background: "rgba(255,255,255,0.035)",
+        border: "1px solid rgba(255,255,255,0.1)",
+        padding: "0 12px",
+        color: "#eaf5ef",
+        fontSize: 11,
+        outline: "none",
+        backdropFilter: "blur(14px)",
+        WebkitBackdropFilter: "blur(14px)",
+        boxShadow: "inset 0 1px 1px rgba(255,255,255,0.06)"
     },
+
     dropdown: {
-        position: "absolute", top: 30, left: 0, right: 0,
-        background: "rgba(20,20,25,0.96)", borderRadius: 12,
-        backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)",
-        boxShadow: "0 25px 60px rgba(0,0,0,0.8)", border: "1px solid rgba(255,255,255,0.08)",
-        zIndex: 100, maxHeight: 120, overflowY: "auto"
+        position: "absolute",
+        top: 32,
+        left: 0,
+        right: 0,
+        background: "rgba(12, 22, 18, 0.65)",
+        borderRadius: 16,
+        backdropFilter: "blur(28px) saturate(140%)",
+        WebkitBackdropFilter: "blur(28px) saturate(140%)",
+        boxShadow: `
+        0 30px 70px rgba(0,0,0,0.85),
+        inset 0 1px 0 rgba(255,255,255,0.06)
+    `,
+        border: "1px solid rgba(255,255,255,0.14)",
+        zIndex: 100,
+        maxHeight: 150,
+        overflowY: "auto"
     },
+
     option: { padding: "6px 10px", cursor: "pointer", transition: "background 0.15s ease" },
     optionName: { fontSize: 11 },
     optionSub: { fontSize: 9, opacity: 0.5 },
     bottomArea: { display: "flex", flexDirection: "column", flex: 1, gap: 8 },
     textarea: {
-        flex: "0 0 50%", borderRadius: 10, background: "rgba(255,255,255,0.05)",
-        border: "1px solid rgba(255,255,255,0.08)", padding: "8px 10px",
-        color: "#eaeaea", fontSize: 11, resize: "none", outline: "none"
+        flex: "0 0 52%",
+        borderRadius: 16,
+        background: "rgba(255,255,255,0.03)",
+        border: "1px solid rgba(255,255,255,0.1)",
+        padding: "10px 12px",
+        color: "#eaf5ef",
+        fontSize: 11,
+        resize: "none",
+        outline: "none",
+        backdropFilter: "blur(18px)",
+        WebkitBackdropFilter: "blur(18px)",
+        boxShadow: "inset 0 1px 1px rgba(255,255,255,0.06)"
     },
+
     circleButtonRow: {
         display: "flex", alignItems: "center", justifyContent: "space-between",
         gap: 10, position: "relative", zIndex: 300, marginTop: 'auto'
@@ -513,29 +626,50 @@ const styles = {
 
     templateMenu: {
         position: "absolute",
-        bottom: "calc(100% + 8px)",
+        bottom: "calc(100% + 10px)",
         left: 0,
         right: 0,
-        // Significant drop in opacity from 0.9 to 0.15
-        background: "rgba(255, 255, 255, 0.05)",
-        backdropFilter: "blur(30px)",
-        WebkitBackdropFilter: "blur(30px)",
-        borderRadius: 14,
-        border: "1px solid rgba(255, 255, 255, 0.12)",
-        boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
+
+        background: `
+        radial-gradient(
+            140% 120% at 10% 0%,
+            rgba(124,255,178,0.18),
+            transparent 55%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(8,14,11,0.75),
+            rgba(3,5,4,0.85)
+        )
+    `,
+
+        backdropFilter: "blur(28px) saturate(140%)",
+        WebkitBackdropFilter: "blur(28px) saturate(140%)",
+
+        borderRadius: 16,
+        border: "1px solid rgba(124,255,178,0.25)",
+
+        boxShadow: `
+        0 0 0 1px rgba(124,255,178,0.18),
+        0 25px 60px rgba(0,0,0,0.85),
+        inset 0 1px 0 rgba(255,255,255,0.06)
+    `,
+
         overflow: "hidden",
-        padding: "4px",
+        padding: "6px",
         zIndex: 401
     },
 
+
     templateOption: {
-        padding: "10px 12px",
+        padding: "10px 14px",
         fontSize: 11,
-        color: "rgba(255, 255, 255, 0.8)",
+        color: "rgba(234,245,239,0.85)",
         cursor: "pointer",
-        borderRadius: 10,
-        transition: "all 0.2s ease"
+        borderRadius: 12,
+        transition: "background 0.2s ease, color 0.2s ease"
     },
+
 
     templateOverlay: {
         position: "fixed",
@@ -543,24 +677,62 @@ const styles = {
     },
 
     micButton: (on) => ({
-        width: 36, height: 36, borderRadius: "50%", border: "none", cursor: "pointer",
-        background: on ? "rgba(255, 59, 59, 0.9)" : "rgba(255,255,255,0.12)",
-        display: "flex", alignItems: "center", justifyContent: "center", zIndex: 200,
+        width: 38,
+        height: 38,
+        borderRadius: "50%",
+        border: "1px solid rgba(255,255,255,0.14)",
+        cursor: "pointer",
+        background: on
+            ? "rgba(250,28,28,0.55)"
+            : "rgba(255,255,255,0.05)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         animation: on ? "mic-breathe 1.4s ease-in-out infinite" : "none",
-        boxShadow: on ? "0 0 12px rgba(255, 59, 59, 0.4)" : "0 8px 20px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.15)"
+        backdropFilter: "blur(14px)",
+        WebkitBackdropFilter: "blur(14px)",
+        boxShadow: on
+            ? "0 0 18px rgba(255,80,80,0.5)"
+            : `
+            inset 0 1px 1px rgba(255,255,255,0.1),
+            0 8px 22px rgba(0,0,0,0.5)
+        `
     }),
+
     sendButton: (sending) => ({
-        width: 36, height: 36, borderRadius: "50%", border: "none", cursor: sending ? "not-allowed" : "pointer",
-        background: sending ? "rgba(59, 130, 246, 0.9)" : "rgba(255,255,255,0.12)",
-        display: "flex", alignItems: "center", justifyContent: "center", zIndex: 200,
+        width: 38,
+        height: 38,
+        borderRadius: "50%",
+        border: "1px solid rgba(255,255,255,0.14)",
+        cursor: sending ? "not-allowed" : "pointer",
+        background: sending
+            ? "rgba(34,236,117,0.55)"
+            : "rgba(255,255,255,0.05)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         animation: sending ? "send-pulse 1s ease-in-out infinite" : "none",
-        boxShadow: sending ? "0 0 15px rgba(59, 130, 246, 0.5)" : "0 8px 20px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.15)"
+        backdropFilter: "blur(14px)",
+        WebkitBackdropFilter: "blur(14px)",
+        boxShadow: sending
+            ? "0 0 20px rgba(0,236,0,0.55)"
+            : `
+            inset 0 1px 1px rgba(255,255,255,0.05),
+            0 8px 22px rgba(0,0,0,0.5)
+        `
     }),
+
     rightPane: { width: 110, display: "flex", flexDirection: "column", gap: 8 },
     imageWrapper: {
-        width: "100%", height: 110, borderRadius: 14, overflow: "hidden",
-        background: "rgba(255,255,255,0.05)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)"
+        width: "100%",
+        height: 112,
+        borderRadius: 18,
+        overflow: "hidden",
+        background: "rgba(255,255,255,0.035)",
+        border: "1px solid rgba(255,255,255,0.12)",
+        boxShadow: "inset 0 1px 1px rgba(255,255,255,0.06)"
     },
+
     photo: { width: "100%", height: "100%", objectFit: "cover" },
     fallbackAvatar: {
         width: "100%", height: 110, borderRadius: 14, background: "rgba(255,255,255,0.08)",
@@ -573,36 +745,119 @@ const styles = {
         flex: 1, borderRadius: 14, background: "rgba(255,255,255,0.03)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)"
     },
     localOverlay: {
-        position: "absolute", inset: 0, zIndex: 5000, borderRadius: 22,
-        background: "radial-gradient(120% 120% at 50% 20%, rgba(255,255,255,0.05), rgba(0,0,0,0.45))",
-        backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)"
+        position: "absolute",
+        inset: 0,
+        zIndex: 5000,
+        borderRadius: 24,
+        background: `
+        radial-gradient(
+            120% 120% at 50% 20%,
+            rgba(124,255,178,0.12),
+            rgba(0,0,0,0.55)
+        )
+    `,
+        backdropFilter: "blur(2px)",
+        WebkitBackdropFilter: "blur(10px)"
     },
+
     confirmDialog: {
-        position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
-        width: 340, padding: "22px 26px", borderRadius: 18, zIndex: 5001, color: "#eaeaea",
-        background: `radial-gradient(120% 120% at 0% 0%, rgba(255,255,255,0.08), rgba(0,0,0,0)), 
-                     linear-gradient(180deg, rgba(35,35,40,0.4), rgba(10,10,12,0.6))`,
-        backdropFilter: "blur(32px)", WebkitBackdropFilter: "blur(32px)",
-        boxShadow: "0 40px 100px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08)",
-        border: "1px solid rgba(255,255,255,0.08)"
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        width: 340,
+        padding: "22px 26px",
+        borderRadius: 20,
+        zIndex: 5001,
+        color: "#eaf5ef",
+
+        background: `
+    radial-gradient(
+        140% 120% at 10% 0%,
+        rgba(124,255,178,0.18),
+        transparent 60%
+    ),
+    linear-gradient(
+        180deg,
+        rgba(10,18,14,0.45),
+        rgba(4,6,5,0.55)
+    )
+`,
+
+
+        backdropFilter: "blur(12px) saturate(140%)",
+        WebkitBackdropFilter: "blur(12px) saturate(140%)",
+
+        boxShadow: `
+        0 0 0 1px rgba(124,255,178,0.35),
+        0 0 40px rgba(124,255,178,0.25),
+        0 40px 100px rgba(0,0,0,0.8),
+        inset 0 1px 0 rgba(255,255,255,0.08)
+    `
     },
-    confirmTitle: { fontSize: 15, fontWeight: 600, marginBottom: 12, color: "rgba(255,255,255,0.95)" },
-    confirmText: { fontSize: 11, marginBottom: 10, color: "rgba(255,255,255,0.6)" },
+
+    confirmTitle: {
+        fontSize: 15,
+        fontWeight: 600,
+        marginBottom: 12,
+        color: "#f0fff7"
+    },
+
+    confirmText: {
+        fontSize: 11,
+        marginBottom: 10,
+        color: "rgba(234,245,239,0.7)"
+    },
+
     confirmMessage: {
-        fontSize: 11, padding: "10px 12px", background: "rgba(0,0,0,0.2)", borderRadius: 10,
-        marginBottom: 18, color: "rgba(255,255,255,0.6)", border: "1px solid rgba(255,255,255,0.04)",
-        maxHeight: 60, overflow: "auto"
+        fontSize: 11,
+        padding: "10px 12px",
+        background: "rgba(255,255,255,0.04)",
+        borderRadius: 12,
+        marginBottom: 18,
+        color: "rgba(234,245,239,0.75)",
+        border: "1px solid rgba(255,255,255,0.08)",
+        maxHeight: 60,
+        overflow: "auto",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)"
     },
+
     confirmButtons: { display: "flex", gap: 10, justifyContent: "flex-end" },
     cancelButton: {
-        padding: "8px 18px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.1)",
-        background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.8)", fontSize: 11, cursor: "pointer"
+        padding: "8px 18px",
+        borderRadius: 12,
+        border: "1px solid rgba(255,255,255,0.14)",
+        background: "rgba(255,255,255,0.04)",
+        color: "rgba(234,245,239,0.75)",
+        fontSize: 11,
+        cursor: "pointer",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        boxShadow: `
+        inset 0 1px 1px rgba(255,255,255,0.08),
+        0 6px 18px rgba(0,0,0,0.45)
+    `
     },
+
     confirmButton: {
-        padding: "8px 20px", borderRadius: 10, border: "none", fontWeight: 600,
-        background: "linear-gradient(180deg, rgba(79,141,247,0.8), rgba(59,111,220,0.8))",
-        color: "#ffffff", fontSize: 11, cursor: "pointer"
-    },successToast: {
+        padding: "8px 22px",
+        borderRadius: 12,
+        border: "1px solid rgba(124,255,178,0.6)",
+        fontWeight: 600,
+        background: "rgba(124,255,178,0.22)",
+        color: "#eafff4",
+        fontSize: 11,
+        cursor: "pointer",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        boxShadow: `
+        0 0 14px rgba(124,255,178,0.45),
+        inset 0 1px 1px rgba(255,255,255,0.2)
+    `
+    },
+
+    successToast: {
         position: "absolute", top: 12, left: "50%", transform: "translateX(-50%)",
         width: 140, height: 32, padding: "0 10px", borderRadius: 12, zIndex: 6000,
         display: "flex", alignItems: "center", justifyContent: "space-between",
@@ -616,7 +871,7 @@ const styles = {
     successIcon: {
         width: 16, height: 16, borderRadius: "50%",
         // Changed to a transparent green glow instead of solid green
-        background: "rgba(16, 185, 129, 0.2)",
+        background: "rgba(20,223,156,0.2)",
         border: "1px solid rgba(16, 185, 129, 0.4)",
         display: "flex", alignItems: "center", justifyContent: "center",
         color: "#10b981", fontSize: 10, fontWeight: "bold"
