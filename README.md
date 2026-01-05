@@ -20,6 +20,15 @@ https://github.com/user-attachments/assets/3a09838b-e2f4-4a22-b2df-0033e2720c1e
 
 <br/>
 
+
+## 🧭 System Architecture (Graphical Overview)
+
+### 🐋 A high-level view of how **frontend modules**, **backend services**, and **automation agents** interact.
+
+<p align="center">
+  <img src="dashboard_ui/app_workflow.png" width="820"/>
+</p>
+
 ---
 
 ## ✨ What is ABPA3?
@@ -192,14 +201,7 @@ The interface is designed as a **natural progression** of how work actually happ
 
 ---
 
-## 🧭 System Architecture (Graphical Overview)
 
-## 🐋 A high-level view of how **frontend modules**, **backend services**, and **automation agents** interact inside ABPA3.
-
-<p align="center">
-  <img src="" width="820"/>
-</p>
----
 
 ## ▶️ How to Run ABPA3 Locally
 
