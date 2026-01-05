@@ -38,9 +38,8 @@ All inside a single, cohesive workspace.
 
 ![Focused Build Time](https://img.shields.io/badge/Focused%20Build%20Time-140%2B%20hours-blueviolet?style=for-the-badge)
 
-
-
 ---
+
 ## ❗Read files from "documentation" folder
 
 Documentation has:
@@ -50,7 +49,6 @@ Documentation has:
 
 ---
 
----
 ## ❗❗Agent workflows & explanation in "n8n_workflows" folder
 
 Images have:
@@ -173,40 +171,85 @@ The interface is designed as a **natural progression** of how work actually happ
 - Saves time on repetitive writing
 
 ---
+
 ## 🧠 Non-Obvious Technical Concepts Used
 
 | Concept | Where It Appears | Why It’s Non-Obvious |
 |------|----------------|----------------------|
-| **Real-Time Audio Signal Sampling** | `useAudioLevel` | Continuously sampling microphone amplitude and mapping it to UI feedback crosses into digital signal processing, which is uncommon in typical frontend apps |
-| **RMS-Based Temporal Smoothing** | Voice orb / mic intensity | Applying RMS smoothing stabilizes noisy audio signals and aligns UI response with human loudness perception |
-| **EXIF-Aware Media Normalization** | Image → PDF pipeline | Correcting orientation using EXIF metadata avoids subtle double-rotation bugs common in media pipelines |
-| **Proxy Server Architecture** | Image proxy service | Introducing a backend proxy to fetch third-party assets requires understanding browser security boundaries and request delegation |
-| **AWS S3 CORS Constraint Handling** | External image loading | Navigating AWS S3 CORS policies and hotlink restrictions requires backend mediation rather than frontend workarounds |
-| **Proxy-Mediated Asset Fetching** | Frontend ↔ backend boundary | Routing requests through a controlled server layer enables secure, compliant access to restricted resources |
-| **Local-First STT & TTS Architecture** | Whisper.cpp, piperTTS integration | Running speech-to-text locally prioritizes privacy, determinism, and latency over cloud convenience |
-| **Agent Responsibility Isolation** | n8n agents | Decomposing system intelligence into specialized agents avoids monolithic AI logic and improves scalability |
-| **Event-Driven UI Synchronization** | Voice + Kanban | Custom event dispatching enables real-time UI reactions without polling or tight component coupling |
-| **Inter Component Communication** | Voice <-> Kanban etc |Component dependent sub components just like inheritance and also info gathers and acts as security layers for more abstraction |
-| **Natural Ordering Algorithms** | Media batching | Numeric-aware sorting prevents subtle ordering bugs caused by lexicographic file sorting |
-| **UI as a Signal Consumer** | Voice visualization | Treating UI as a consumer of real-world signals (audio input) rather than only user actions is a paradigm shift |
-| **Constraint-Driven UX Design** | CORS, offline-first | UX decisions shaped by platform and security constraints rather than idealized assumptions |
+| **Real-Time Audio Signal Sampling** | `useAudioLevel` | Continuously sampling microphone amplitude and mapping it to UI feedback crosses into digital signal processing |
+| **RMS-Based Temporal Smoothing** | Voice orb / mic intensity | Stabilizes noisy audio signals and matches human loudness perception |
+| **EXIF-Aware Media Normalization** | Image → PDF pipeline | Prevents subtle rotation bugs in media pipelines |
+| **Proxy Server Architecture** | Image proxy service | Requires backend mediation to respect browser security boundaries |
+| **AWS S3 CORS Constraint Handling** | External image loading | Cannot be solved purely on the frontend |
+| **Proxy-Mediated Asset Fetching** | Frontend ↔ backend boundary | Enables secure access to restricted resources |
+| **Local-First STT & TTS Architecture** | Whisper.cpp, Piper TTS | Prioritizes privacy, determinism, and latency |
+| **Agent Responsibility Isolation** | n8n agents | Avoids monolithic AI logic |
+| **Event-Driven UI Synchronization** | Voice + Kanban | Real-time updates without polling |
+| **Inter Component Communication** | Voice ↔ Kanban | Components act as security and abstraction layers |
+| **Natural Ordering Algorithms** | Media batching | Prevents lexicographic ordering bugs |
+| **UI as a Signal Consumer** | Voice visualization | UI reacts to real-world signals |
+| **Constraint-Driven UX Design** | Offline-first, CORS | UX shaped by platform limits |
 
+---
 
+## 🧭 System Architecture (Graphical Overview)
 
+> A high-level view of how **frontend modules**, **backend services**, and **automation agents** interact inside ABPA3.
 
+```mermaid
+flowchart TB
 
-## ✨ What is ABPA3?
+subgraph Backend["Backend (Local)"]
+    PY["Python / Node.js Server<br/>(Port 5002)<br/>STT / TTS"]
+    OPT["OPTIONS API"]
+    N8N["n8n Localhost<br/>(Port 5678)"]
+    WH["Webhooks"]
+    IMG_PROXY["Image Proxy"]
+end
 
-ABPA3 is an experimental productivity system built around **agent-based automation** and **visual-first thinking**.
+subgraph Frontend["Frontend (React – Port 3000)"]
+    REACT["React App"]
+    STORAGE["Browser Local Storage"]
+end
 
-Instead of juggling disconnected tools, ABPA3 brings together:
-- Visual flowcharts for thinking
-- Kanban boards for execution
-- Calendar-aware actions
-- A fully local voice assistant
+CR["Client Request Hub"]
 
-All inside a single, cohesive workspace.
+PY <--> OPT
+OPT <--> CR
+CR <--> WH
+WH <--> N8N
 
+REACT <--> STORAGE
+REACT <--> CR
+
+CR --> IMG_PROXY
+
+subgraph UI["Frontend Modules"]
+    FC["Flow Canvas"]
+    VA["Voice Assistant"]
+    VN["Voice Notes"]
+    TW["Time Widget"]
+    CK["Custom Kanban"]
+end
+
+FC <--> CR
+VA <--> CR
+VN <--> CR
+TW <--> CR
+CK <--> CR
+
+VN <--> TW
+
+subgraph Output["Productivity & Automation"]
+    UP["Upcoming Panel"]
+    MF["Mail to Faculty"]
+    TT["Task Tracker"]
+end
+
+UP <--> MF
+VA --> UP
+CK --> TT
+```
 ---
 
 ## ▶️ How to Run ABPA3 Locally
@@ -285,6 +328,7 @@ UI previews represent evolving, experimental features and internal tooling.
 - Direct pushes are disabled by design
 
 ---
+
 
 
 
