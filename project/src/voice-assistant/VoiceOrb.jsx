@@ -6,6 +6,7 @@ import { MdWifiOff } from "react-icons/md";
 import Prism from "./Prism";
 import { useAudioLevel } from "./useAudioLevel";
 import { startWhisperRecording, stopWhisperRecording } from "./whisperSTT";
+import { speakWithPiper } from "./piperTTS";
 
 import muteSound from "../assets/sounds/MicOfd.mp3";
 import unmuteSound from "../assets/sounds/MicOn.mp3";
@@ -140,9 +141,26 @@ export default function VoiceOrb({ micOn, setMicOn, isWaitingForResponse, setIsW
                         } else {
                             muteAudioRef.current?.play();
                             setMicOn(false);
-                            setIsWaitingForResponse(true);
+
                             const text = await stopWhisperRecording();
-                            if (text?.trim()) onTranscript(text);
+
+                            if (text?.trim()) {
+                                // If Wi-Fi is ON, we are sending to agent
+                                if (online === 1) {
+                                    setIsWaitingForResponse(true);
+
+                                    // Send text to n8n agent
+                                    onTranscript(text);
+
+                                    // Speak acknowledgment AFTER sending
+                                    await speakWithPiper(
+                                        "Please hold on, I am looking into your request."
+                                    );
+                                } else {
+                                    // Offline mode (optional handling)
+                                    onTranscript(text);
+                                }
+                            }
                         }
                     }}
                     style={micButtonBase}
