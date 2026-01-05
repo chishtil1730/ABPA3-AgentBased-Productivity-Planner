@@ -6,20 +6,76 @@ import io
 import subprocess
 import tempfile
 import os
+import threading
 
 # STT imports
 from pywhispercpp.model import Model
-import librosa
+import numpy as np
 import soundfile as sf
+
+# ===============================
+# APP SETUP
+# ===============================
 
 app = Flask(__name__)
 CORS(app)
 
 # ===============================
-# TTS (UNCHANGED)
+# LOAD MODELS (ONCE)
 # ===============================
 
+print("[INIT] Loading Piper TTS model...")
 voice = PiperVoice.load("models/en_US-hfc_female-medium.onnx")
+
+print("[INIT] Loading Whisper STT model...")
+stt_model = Model(
+    "base",
+    n_threads=os.cpu_count(),
+)
+
+# ===============================
+# DOUBLE WARM-UP LOGIC
+# ===============================
+
+def warmup_models():
+    print("[WARMUP] Starting DOUBLE warm-up...")
+
+    try:
+        for i in range(2):
+            print(f"[WARMUP] Pass {i + 1}/2")
+
+            # ---- Whisper Warm-up ----
+            sr = 16000
+            silent_audio = np.zeros(sr, dtype=np.float32)
+            warmup_wav = f"warmup_{i}.wav"
+
+            sf.write(warmup_wav, silent_audio, sr)
+            stt_model.transcribe(
+                warmup_wav,
+                language="en",
+                no_context=True,
+                print_progress=False,
+            )
+            os.remove(warmup_wav)
+
+            # ---- Piper Warm-up ----
+            buffer = io.BytesIO()
+            with wave.open(buffer, "wb") as wav_file:
+                wav_file.setnchannels(1)
+                wav_file.setsampwidth(2)
+                voice.synthesize_wav("warm up", wav_file)
+
+        print("[WARMUP] Double warm-up complete")
+
+    except Exception as e:
+        print("[WARMUP ERROR]", e)
+
+# Run warmup in background so server can start immediately
+threading.Thread(target=warmup_models, daemon=True).start()
+
+# ===============================
+# TTS ENDPOINT
+# ===============================
 
 @app.route("/tts", methods=["POST"])
 def tts():
@@ -43,14 +99,8 @@ def tts():
     )
 
 # ===============================
-# STT (pywhispercpp – BASE)
+# STT ENDPOINT
 # ===============================
-
-# Load model ONCE at startup (important!)
-stt_model = Model(
-    "base",#could also use "small" for better transcription but slower.
-    n_threads=os.cpu_count(),
-)
 
 @app.route("/stt", methods=["POST"])
 def stt():
@@ -91,15 +141,18 @@ def stt():
         )
 
         text = " ".join(s.text for s in segments).strip()
-        return jsonify({ "text": text })
+        return jsonify({"text": text})
 
     finally:
         # 4. Cleanup
-        for p in [locals().get("webm_path"), locals().get("wav_path")]:
+        for p in (locals().get("webm_path"), locals().get("wav_path")):
             if p and os.path.exists(p):
                 os.remove(p)
 
-
+# ===============================
+# RUN SERVER
 # ===============================
 
-app.run(port=5002)
+if __name__ == "__main__":
+    print("[SERVER] Starting on port 5002")
+    app.run(port=5002)
