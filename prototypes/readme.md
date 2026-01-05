@@ -1,16 +1,10 @@
-# Prototypes – Image References
-
-This directory documents the visual prototypes and early design explorations for different UI components and interaction flows used in the project.
-
----
-
 ## Flowchart Prototypes
 
 ### flowchart_prot1.1.png
 Early flowchart concept exploring the initial structure and navigation logic of the system.
 
 <p align="center">
-  <img src="prototypes/images_prot/flowchart_prot1.1.png" width="820"/>
+  <img src="images_prot/flowchart_prot1.1.png" width="820"/>
 </p>
 
 ---
@@ -19,7 +13,7 @@ Early flowchart concept exploring the initial structure and navigation logic of 
 Iteration on the first flowchart with refinements to node grouping and transitions.
 
 <p align="center">
-  <img src="prototypes/images_prot/flowchart_prot1.2.png" width="820"/>
+  <img src="images_prot/flowchart_prot1.2.png" width="820"/>
 </p>
 
 ---
@@ -28,7 +22,7 @@ Iteration on the first flowchart with refinements to node grouping and transitio
 Second-generation flowchart prototype focusing on clearer decision paths and modular flows.
 
 <p align="center">
-  <img src="prototypes/images_prot/flowchart_prot2.png" width="820"/>
+  <img src="images_prot/flowchart_prot2.png" width="820"/>
 </p>
 
 ---
@@ -37,7 +31,7 @@ Second-generation flowchart prototype focusing on clearer decision paths and mod
 More polished flowchart version representing near-final interaction and process logic.
 
 <p align="center">
-  <img src="prototypes/images_prot/flowchart_prot3.png" width="820"/>
+  <img src="images_prot/flowchart_prot3.png" width="820"/>
 </p>
 
 ---
@@ -48,7 +42,7 @@ More polished flowchart version representing near-final interaction and process 
 Initial UI layout prototype showcasing overall component placement and hierarchy.
 
 <p align="center">
-  <img src="prototypes/images_prot/prot1.png" width="820"/>
+  <img src="images_prot/prot1.png" width="820"/>
 </p>
 
 ---
@@ -57,7 +51,7 @@ Initial UI layout prototype showcasing overall component placement and hierarchy
 Refined UI prototype with improved spacing, alignment, and visual balance.
 
 <p align="center">
-  <img src="prototypes/images_prot/prot2.png" width="820"/>
+  <img src="images_prot/prot2.png" width="820"/>
 </p>
 
 ---
@@ -68,7 +62,5 @@ Refined UI prototype with improved spacing, alignment, and visual balance.
 Concept design for the AI voice assistant interface, focusing on interaction flow and user feedback states.
 
 <p align="center">
-  <img src="prototypes/images_prot/voice_assistant_prot1.png" width="820"/>
+  <img src="images_prot/voice_assistant_prot1.png" width="820"/>
 </p>
-
----
