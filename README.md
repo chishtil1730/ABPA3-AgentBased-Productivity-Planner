@@ -21,13 +21,15 @@ https://github.com/user-attachments/assets/3a09838b-e2f4-4a22-b2df-0033e2720c1e
 <br/>
 
 
-## 🧭 System Architecture (Graphical Overview)
+## 🐋 System Architecture (Graphical Overview)
 
-### 🐋 A high-level view of how **frontend modules**, **backend services**, and **automation agents** interact.
+> A high-level view of how frontend modules, backend services, automation agents, and cloud interactions
+> are orchestrated through a central client request hub.
 
 <p align="center">
-  <img src="dashboard_ui/app_workflow.png" width="820"/>
+  <img src="dashboard_ui/app_workflow.png" alt="ABPA3 System Architecture" width="100%"/>
 </p>
+
 
 ---
 
