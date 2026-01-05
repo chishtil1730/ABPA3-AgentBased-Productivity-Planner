@@ -194,62 +194,11 @@ The interface is designed as a **natural progression** of how work actually happ
 
 ## 🧭 System Architecture (Graphical Overview)
 
-> A high-level view of how **frontend modules**, **backend services**, and **automation agents** interact inside ABPA3.
+## 🐋 A high-level view of how **frontend modules**, **backend services**, and **automation agents** interact inside ABPA3.
 
-```mermaid
-flowchart TB
-
-subgraph Backend["Backend (Local)"]
-    PY["Python / Node.js Server<br/>(Port 5002)<br/>STT / TTS"]
-    OPT["OPTIONS API"]
-    N8N["n8n Localhost<br/>(Port 5678)"]
-    WH["Webhooks"]
-    IMG_PROXY["Image Proxy"]
-end
-
-subgraph Frontend["Frontend (React – Port 3000)"]
-    REACT["React App"]
-    STORAGE["Browser Local Storage"]
-end
-
-CR["Client Request Hub"]
-
-PY <--> OPT
-OPT <--> CR
-CR <--> WH
-WH <--> N8N
-
-REACT <--> STORAGE
-REACT <--> CR
-
-CR --> IMG_PROXY
-
-subgraph UI["Frontend Modules"]
-    FC["Flow Canvas"]
-    VA["Voice Assistant"]
-    VN["Voice Notes"]
-    TW["Time Widget"]
-    CK["Custom Kanban"]
-end
-
-FC <--> CR
-VA <--> CR
-VN <--> CR
-TW <--> CR
-CK <--> CR
-
-VN <--> TW
-
-subgraph Output["Productivity & Automation"]
-    UP["Upcoming Panel"]
-    MF["Mail to Faculty"]
-    TT["Task Tracker"]
-end
-
-UP <--> MF
-VA --> UP
-CK --> TT
-```
+<p align="center">
+  <img src="" width="820"/>
+</p>
 ---
 
 ## ▶️ How to Run ABPA3 Locally
