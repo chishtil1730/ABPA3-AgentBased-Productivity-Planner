@@ -238,6 +238,7 @@ npm start
 
 **Image Proxy**
 ```
+cd src/image-proxy
 node server.js
 ```
 
