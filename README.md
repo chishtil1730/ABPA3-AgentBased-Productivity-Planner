@@ -41,12 +41,22 @@ All inside a single, cohesive workspace.
 
 
 ---
-## ❗Read files from documentation
+## ❗Read files from "documentation" folder
 
 Documentation has:
 - All the theory
 - Encountered errors
 - Handled solutions
+
+---
+
+---
+## ❗❗Agent workflows & explanation in "n8n_workflows" folder
+
+Images have:
+- All workflows
+- Settings for certains workflows
+- System prompts.
 
 ---
 
