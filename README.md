@@ -191,6 +191,7 @@ The interface is designed as a **natural progression** of how work actually happ
 | **RMS-Based Temporal Smoothing** | Voice orb / mic intensity | Stabilizes noisy audio signals and matches human loudness perception |
 | **EXIF-Aware Media Normalization** | Image → PDF pipeline | Prevents subtle rotation bugs in media pipelines |
 | **Proxy Server Architecture** | Image proxy service | Requires backend mediation to respect browser security boundaries |
+| **Server Cool down Prevention** |Added real file warmups with real audio clips so the server is hot and ready|Used in backend node.js server for lower latency|
 | **AWS S3 CORS Constraint Handling** | External image loading | Cannot be solved purely on the frontend |
 | **Proxy-Mediated Asset Fetching** | Frontend ↔ backend boundary | Enables secure access to restricted resources |
 | **Local-First STT & TTS Architecture** | Whisper.cpp, Piper TTS | Prioritizes privacy, determinism, and latency |
