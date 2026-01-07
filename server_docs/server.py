@@ -10,8 +10,13 @@ import threading
 
 # STT imports
 from pywhispercpp.model import Model
-import numpy as np
 import soundfile as sf
+
+# ===============================
+# CONFIG
+# ===============================
+
+WARMUP_AUDIO_PATH = "Chsihti2.wav"  # <-- YOUR real speech file
 
 # ===============================
 # APP SETUP
@@ -34,43 +39,59 @@ stt_model = Model(
 )
 
 # ===============================
-# DOUBLE WARM-UP LOGIC
+# REAL-SPEECH DOUBLE WARM-UP
 # ===============================
 
 def warmup_models():
-    print("[WARMUP] Starting DOUBLE warm-up...")
+    print("[WARMUP] Starting REAL-SPEECH double warm-up...")
+
+    if not os.path.exists(WARMUP_AUDIO_PATH):
+        print(f"[WARMUP ERROR] Missing {WARMUP_AUDIO_PATH}")
+        return
 
     try:
+        # Ensure 16kHz mono (exact Whisper path)
+        warmup_wav = "warmup_16k.wav"
+        subprocess.run(
+            [
+                "ffmpeg", "-y",
+                "-i", WARMUP_AUDIO_PATH,
+                "-ac", "1",
+                "-ar", "16000",
+                warmup_wav,
+            ],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=True
+        )
+
         for i in range(2):
-            print(f"[WARMUP] Pass {i + 1}/2")
+            print(f"[WARMUP] Pass {i + 1}/2 — real speech")
 
-            # ---- Whisper Warm-up ----
-            sr = 16000
-            silent_audio = np.zeros(sr, dtype=np.float32)
-            warmup_wav = f"warmup_{i}.wav"
-
-            sf.write(warmup_wav, silent_audio, sr)
             stt_model.transcribe(
                 warmup_wav,
                 language="en",
                 no_context=True,
+                max_len=448,
                 print_progress=False,
             )
-            os.remove(warmup_wav)
 
-            # ---- Piper Warm-up ----
-            buffer = io.BytesIO()
-            with wave.open(buffer, "wb") as wav_file:
-                wav_file.setnchannels(1)
-                wav_file.setsampwidth(2)
-                voice.synthesize_wav("warm up", wav_file)
+        os.remove(warmup_wav)
+        print("[WARMUP] Whisper fully hot")
 
-        print("[WARMUP] Double warm-up complete")
+        # ---- Piper warm-up (already fast, but keep it symmetric) ----
+        buffer = io.BytesIO()
+        with wave.open(buffer, "wb") as wav_file:
+            wav_file.setnchannels(1)
+            wav_file.setsampwidth(2)
+            voice.synthesize_wav("This is a warm up.", wav_file)
+
+        print("[WARMUP] Piper ready")
 
     except Exception as e:
         print("[WARMUP ERROR]", e)
 
-# Run warmup in background so server can start immediately
+# Run warmup in background
 threading.Thread(target=warmup_models, daemon=True).start()
 
 # ===============================
@@ -84,19 +105,13 @@ def tts():
         return jsonify({"error": "No text"}), 400
 
     buffer = io.BytesIO()
-
     with wave.open(buffer, "wb") as wav_file:
         wav_file.setnchannels(1)
         wav_file.setsampwidth(2)
         voice.synthesize_wav(text, wav_file)
 
     buffer.seek(0)
-
-    return send_file(
-        buffer,
-        mimetype="audio/wav",
-        as_attachment=False
-    )
+    return send_file(buffer, mimetype="audio/wav")
 
 # ===============================
 # STT ENDPOINT
@@ -110,12 +125,10 @@ def stt():
     audio_file = request.files["audio"]
 
     try:
-        # 1. Save uploaded webm
         with tempfile.NamedTemporaryFile(delete=False, suffix=".webm") as tmp_webm:
             audio_file.save(tmp_webm.name)
             webm_path = tmp_webm.name
 
-        # 2. Convert to 16kHz mono WAV (FFmpeg)
         wav_path = webm_path.replace(".webm", ".wav")
         subprocess.run(
             [
@@ -131,7 +144,6 @@ def stt():
             timeout=6
         )
 
-        # 3. Transcribe
         segments = stt_model.transcribe(
             wav_path,
             language="en",
@@ -144,7 +156,6 @@ def stt():
         return jsonify({"text": text})
 
     finally:
-        # 4. Cleanup
         for p in (locals().get("webm_path"), locals().get("wav_path")):
             if p and os.path.exists(p):
                 os.remove(p)
