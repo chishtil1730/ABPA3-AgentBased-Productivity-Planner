@@ -1,28 +1,31 @@
-# Local-First Sync, Tags & Versioning Strategy
+# Local-First Sync, Tagging & Versioning Strategy
 
-## User Tags
-- Tags are designed to be **live and always up to date**.
-- They evolve dynamically with user actions.
+## Dynamic User Tags
+- Tags are **live, continuously updated entities**.
+- They evolve automatically based on user interactions and state changes.
+- Tag updates are treated as first-class data mutations.
 
-## Version Control
-- All user changes are tracked.
-- Version control enables:
-  - Rollbacks
-  - Auditing
-  - Change history
+## Version Control & Change Tracking
+- **Every user mutation is versioned**.
+- The versioning system supports:
+  - Rollbacks to previous states
+  - Auditable change history
+  - Fine-grained state inspection over time
 
 ## Local-First Architecture
-- Data is written locally first (browser/storage).
-- Server/database sync happens **gradually**.
+- All data is **persisted locally first** (browser storage / local cache).
+- Remote synchronization is **asynchronous and non-blocking**.
+- The system remains fully functional offline.
 
-## Sync Strategy
-- When the system is idle:
-  - Begin pushing data to the database.
-  - Slowly clear browser/local memory.
-  - Push to DB and sync data to the local connected device.
-- This avoids blocking the user and improves perceived performance.
+## Synchronization Strategy
+- Sync is triggered during **idle or low-activity periods**:
+  - Incrementally push local changes to the database
+  - Gradually release local memory after confirmation
+  - Propagate updates to connected local devices
+- This ensures zero disruption to active user workflows.
 
-## Goal
-- Maximum responsiveness
-- Offline resilience
-- Safe, incremental persistence
+## Design Goals
+- **Maximum responsiveness**
+- **Offline-first reliability**
+- **Safe, incremental persistence**
+- **Predictable and reversible state evolution**
