@@ -19,6 +19,7 @@
 - When the system is idle:
   - Begin pushing data to the database.
   - Slowly clear browser/local memory.
+  - Push to DB and sync data to the local connected device.
 - This avoids blocking the user and improves perceived performance.
 
 ## Goal
