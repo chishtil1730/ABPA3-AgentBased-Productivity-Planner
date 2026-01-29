@@ -8,6 +8,15 @@ Qwen TTS (Qwen3-TTS) is a modern Text-to-Speech system designed with a strong em
 
 ## 2. What Qwen TTS Can Achieve
 
+### Pipeline Latency Comparison (Piper vs Qwen TTS)
+
+| Component | Piper | Qwen TTS (GPU) |
+|---|---|---|
+| ASR (same model) | ~150–400 ms | ~150–400 ms |
+| LLM reasoning | ~400–900 ms | ~400–900 ms |
+| TTS first packet | ~300–500 ms | ~80–120 ms |
+| Full TTS response | ~500–900 ms | ~200–400 ms |
+| End-to-end | ~1.2–2.0 s | ~0.8–1.5 s |
 
 
 ### 2.1 Few-Second Voice Cloning
