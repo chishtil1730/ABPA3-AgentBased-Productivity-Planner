@@ -6,7 +6,7 @@ Qwen TTS (Qwen3-TTS) is a modern Text-to-Speech system designed with a strong em
 
 ---
 
-## 2. What Qwen TTS Can Achieve
+## 2. Qwen can achieve
 
 ### Pipeline Latency Comparison (Piper vs Qwen TTS)
 
