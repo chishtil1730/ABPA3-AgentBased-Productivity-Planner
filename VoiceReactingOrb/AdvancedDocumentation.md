@@ -45,6 +45,7 @@ Microphone Input
 ```
 
 The orb never sees raw audio — it only sees the **final smoothed amplitude value**.
+This, way it is easy to add keyframes for the orb to react.
 
 ---
 
